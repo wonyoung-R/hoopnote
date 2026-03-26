@@ -614,6 +614,13 @@ body {
     font-size: 0.9rem;
 }
 
+.biz-info {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
 /* AI Banner Section */
 .ai-banner-section {
     background: linear-gradient(135deg, #1a0a00 0%, #0d0d0d 40%, #0a0018 100%);
