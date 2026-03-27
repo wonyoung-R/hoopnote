@@ -239,40 +239,114 @@
         </div>
     </section>
 
+    <!-- 비교표: 기존 vs HoopNote -->
+    <section class="section compare" id="compare">
+        <div class="container">
+            <h2 class="section-title">기존 방식 vs <strong style="color: var(--accent-color);">HoopNote</strong></h2>
+            <div class="compare-table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>기존 (수작업)</th>
+                            <th class="hn-col">HoopNote</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>경기 기록</td>
+                            <td class="old">종이 / 엑셀</td>
+                            <td class="new">스마트폰 8버튼</td>
+                        </tr>
+                        <tr>
+                            <td>박스스코어</td>
+                            <td class="old">수동 계산</td>
+                            <td class="new">AI 자동 생성</td>
+                        </tr>
+                        <tr>
+                            <td>학부모 소통</td>
+                            <td class="old">단톡방 수동 입력</td>
+                            <td class="new">AI 알림장 → 카카오 알림톡 자동</td>
+                        </tr>
+                        <tr>
+                            <td>도착/셔틀 알림</td>
+                            <td class="old">전화 / 문자</td>
+                            <td class="new">1터치 자동 발송</td>
+                        </tr>
+                        <tr>
+                            <td>선수 성장 데이터</td>
+                            <td class="old">없음</td>
+                            <td class="new">AI 자동 누적 + 분석</td>
+                        </tr>
+                        <tr>
+                            <td>수납 관리</td>
+                            <td class="old">엑셀 / 기억</td>
+                            <td class="new">AI 자동 트래킹 + 알림</td>
+                        </tr>
+                        <tr>
+                            <td>학부모 앱 설치</td>
+                            <td class="old">필요 (낮은 참여율)</td>
+                            <td class="new">불필요 (카톡으로 수신)</td>
+                        </tr>
+                        <tr>
+                            <td>소요 시간</td>
+                            <td class="old">월 60시간+</td>
+                            <td class="new">월 5시간 이하</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
     <section class="section pricing" id="pricing">
         <div class="container">
             <h2 class="section-title">합리적인 요금, 압도적인 가치</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card premium">
-                    <div class="plan-name">학원 Pro 플랜</div>
+            <div class="pricing-grid three-col">
+                <div class="pricing-card">
+                    <div class="plan-name">Starter</div>
                     <div class="plan-price">₩49,900<span>/월</span></div>
-                    <p class="plan-desc">중대형 규모 학원 최적화</p>
+                    <p class="plan-desc">원생 30명 이하 소규모 학원</p>
                     <ul class="plan-features">
-                        <li>코치 계정 최대 10명 제공</li>
-                        <li>팀/클래스 관리 무제한</li>
-                        <li>카카오 알림톡 월 500건 포함</li>
-                        <li>추가 알림톡 패키지 별도 구매 가능</li>
-                        <li>AI 비서 (알림장 다듬기, 스탯 분석)</li>
-                        <li>카카오톡 1:1 전담 지원</li>
+                        <li>코치 계정 3명</li>
+                        <li>팀/클래스 관리</li>
+                        <li>카카오 알림톡 월 500건</li>
+                        <li>AI 알림장 다듬기</li>
+                        <li>AI 코치 비서</li>
                     </ul>
-                    <a href="https://academy.hoopnote.kr" class="btn btn-primary plan-btn">7일 무료로 시작하기</a>
+                    <a href="https://academy.hoopnote.kr" class="btn btn-primary plan-btn">7일 무료 체험</a>
+                </div>
+                <div class="pricing-card premium">
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price">₩69,900<span>/월</span></div>
+                    <p class="plan-desc">원생 60명 이하 중형 학원</p>
+                    <ul class="plan-features">
+                        <li>Starter 전체 포함</li>
+                        <li>코치 계정 10명</li>
+                        <li>카카오 알림톡 월 1,500건</li>
+                        <li>도착/셔틀 알림 발송</li>
+                        <li>수납일 자동 트래킹</li>
+                        <li>1:1 카카오톡 지원</li>
+                    </ul>
+                    <a href="https://academy.hoopnote.kr" class="btn btn-primary plan-btn">7일 무료 체험</a>
                 </div>
                 <div class="pricing-card">
-                    <div class="plan-name">엔터프라이즈 플랜</div>
-                    <div class="plan-price">협의<span>/월</span></div>
-                    <p class="plan-desc">프랜차이즈 및 대규모 학원 연합용</p>
+                    <div class="plan-name">Premium</div>
+                    <div class="plan-price">₩119,000~<span>/월</span></div>
+                    <p class="plan-desc">원생 60명 이상 대형 학원</p>
                     <ul class="plan-features">
-                        <li>Pro 플랜의 모든 기능 포함</li>
-                        <li>코치 계정 무제한 제공</li>
-                        <li>학원 맞춤 브랜드 커스터마이징</li>
-                        <li>기존 운영 시스템(ERP) 데이터 관리</li>
-                        <li>최우선 전담 매니저 배정</li>
+                        <li>Pro 전체 포함</li>
+                        <li>코치 계정 무제한</li>
+                        <li>알림톡 규모별 맞춤 (3,000건~)</li>
+                        <li>전담 매니저 배정</li>
+                        <li>세금계산서 발행</li>
+                        <li>연 결제 10% 할인</li>
                     </ul>
-                    <a href="https://tally.so/r/ODLjkY" target="_blank" class="btn btn-secondary plan-btn">도입 문의하기</a>
+                    <a href="https://tally.so/r/ODLjkY" target="_blank" class="btn btn-secondary plan-btn">도입 상담하기</a>
                 </div>
             </div>
             <div class="roi-banner">
-                <p>💡 <strong>ROI 체크:</strong> 월 매출의 0.7% 투자로, 학부모 1명의 재등록만 이끌어내도 <strong>5배 </strong> 이상의 효과를 증명합니다.</p>
+                <p>💡 <strong>ROI 체크:</strong> 학부모 1명의 재등록만 이끌어내도 연간 투자 대비 <strong>5배 이상</strong>의 효과를 증명합니다.</p>
             </div>
         </div>
     </section>
@@ -294,7 +368,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <p>&copy; 2026 HoopNote. All rights reserved.</p>
-                <p class="biz-info">상호명: 엠비엠에스 &nbsp;|&nbsp; 사업자등록번호: 764-44-01053 &nbsp;|&nbsp; 대표자: 유원영</p>
+                <p class="biz-info">상호명: 엠비엠에스 &nbsp;|&nbsp; 사업자등록번호: 764-44-01053 &nbsp;|&nbsp; 대표자: 유*영</p>
             </div>
         </div>
     </footer>

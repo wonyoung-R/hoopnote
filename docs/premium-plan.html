@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoopNote Premium — 대형 학원 맞춤 플랜</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --primary-light: #fff3e8;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --border: #e5e5e5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* Print-friendly */
+        @media print {
+            body { font-size: 11pt; }
+            .page-break { page-break-before: always; }
+            .no-print { display: none; }
+            section { padding: 40px 0 !important; }
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+
+        /* Header */
+        .header {
+            background: var(--dark);
+            color: #fff;
+            padding: 48px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+        .header-label {
+            background: rgba(255, 107, 0, 0.15);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-top: 32px;
+            line-height: 1.3;
+        }
+
+        .header p {
+            color: #aaa;
+            margin-top: 12px;
+            font-size: 1.05rem;
+        }
+
+        /* Sections */
+        section { padding: 56px 0; }
+        section + section { border-top: 1px solid var(--border); }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 32px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span { color: var(--primary); }
+
+        /* Pain Points */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .pain-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .pain-card .icon { font-size: 1.5rem; margin-bottom: 12px; }
+        .pain-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+        .pain-card p { color: var(--gray); font-size: 0.9rem; }
+
+        .pain-card .cost {
+            margin-top: 12px;
+            background: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #e53e3e;
+            display: inline-block;
+        }
+
+        /* Value Prop */
+        .value-list { list-style: none; }
+        .value-list li {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: flex-start;
+        }
+
+        .value-list li:last-child { border-bottom: none; }
+
+        .value-icon {
+            width: 44px; height: 44px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .value-list strong { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+        .value-list p { color: var(--gray); font-size: 0.9rem; margin: 0; }
+
+        /* Pricing Table */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .pricing-table th, .pricing-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .pricing-table th {
+            background: var(--light-gray);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        .pricing-table .highlight {
+            background: var(--primary-light);
+            font-weight: 700;
+        }
+
+        .pricing-table .price-cell {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .pricing-note {
+            margin-top: 16px;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .pricing-note strong { color: var(--dark); }
+
+        /* ROI Section */
+        .roi-box {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 24px;
+        }
+
+        .roi-box h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .roi-item { text-align: center; }
+        .roi-item .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .roi-item .label {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 4px;
+        }
+
+        .roi-conclusion {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .roi-conclusion strong { color: var(--primary); }
+
+        /* Comparison */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .compare-table th, .compare-table td {
+            padding: 14px 16px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .compare-table th { background: var(--light-gray); font-weight: 700; }
+        .compare-table td:first-child { text-align: left; font-weight: 600; }
+        .compare-table .check { color: var(--primary); font-weight: 700; }
+        .compare-table .cross { color: #ccc; }
+
+        /* Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 24px 12px;
+            background: var(--light-gray);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .process-step .step-num {
+            width: 32px; height: 32px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .process-step h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+        .process-step p { font-size: 0.8rem; color: var(--gray); }
+
+        /* CTA */
+        .cta-section {
+            background: var(--dark);
+            color: #fff;
+            padding: 56px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p { color: #aaa; margin-bottom: 32px; }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .cta-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .cta-card .label { font-size: 0.8rem; color: #aaa; margin-bottom: 8px; }
+        .cta-card .value { font-size: 1.1rem; font-weight: 700; }
+        .cta-card .value a { color: var(--primary); text-decoration: none; }
+
+        .footer-note {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.6rem; }
+            .pain-grid, .roi-grid, .cta-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .pricing-table { font-size: 0.85rem; }
+            .compare-table { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">HoopNote</div>
+                <span class="header-label">Premium Plan 상담 자료</span>
+            </div>
+            <h1>대형 학원을 위한<br>올인원 운영 솔루션</h1>
+            <p>50명 이상 원생 보유 학원 전용 — 기록, 소통, 운영을 하나로</p>
+        </div>
+    </div>
+
+    <!-- PAIN POINTS -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">원생이 많을수록 <span>커지는 문제</span></h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="icon">⏳</div>
+                    <h3>학부모 소통에 하루 2시간</h3>
+                    <p>50명 이상이면 단톡방 관리, 개별 연락, 경기 결과 전달에 매일 2시간 이상 소요</p>
+                    <div class="cost">월 60시간 낭비</div>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">📋</div>
+                    <h3>기록 누락과 불일치</h3>
+                    <p>코치 여러 명이 종이에 기록하면 데이터가 흩어지고, 학부모에게 다른 정보가 전달됨</p>
+                    <div class="cost">학부모 불만 → 퇴원</div>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">🚐</div>
+                    <h3>셔틀 도착 알림 수작업</h3>
+                    <p>셔틀 출발/학원 도착 때마다 학부모에게 일일이 연락하는 반복 업무</p>
+                    <div class="cost">수업당 50건 × 월 13회</div>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">📉</div>
+                    <h3>"우리 아이 실력이 늘고 있나요?"</h3>
+                    <p>데이터 없이 감으로 답변 → 학부모 신뢰 하락 → 재등록률 감소</p>
+                    <div class="cost">재등록률 5%↓ = 연 수백만원 손실</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Premium 플랜에 <span>포함된 모든 것</span></h2>
+            <ul class="value-list">
+                <li>
+                    <div class="value-icon">🏀</div>
+                    <div>
+                        <strong>8버튼 경기 기록</strong>
+                        <p>스마트폰에서 터치만으로 풀스탯 기록. 코치 여러 명이 동시 기록 가능. 프로급 박스스코어 자동 생성.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="value-icon">📱</div>
+                    <div>
+                        <strong>카카오 알림톡 자동 발송</strong>
+                        <p>경기 결과, 도착/셔틀 알림, 알림장, 수납 안내를 학부모 카카오톡으로 자동 발송. 학부모 앱 설치 불필요.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="value-icon">🤖</div>
+                    <div>
+                        <strong>AI 코치 비서</strong>
+                        <p>코치 메모를 학부모용 알림장으로 자동 다듬기. 선수 스탯 질문에 데이터 기반 즉시 답변.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="value-icon">📊</div>
+                    <div>
+                        <strong>선수별 성장 데이터</strong>
+                        <p>경기별 스탯 자동 집계. 학부모에게 "우리 아이 성장하고 있습니다"를 숫자로 증명.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="value-icon">👥</div>
+                    <div>
+                        <strong>다중 코치 계정</strong>
+                        <p>코치별 클래스 분리 관리. 원장은 전체 현황을 한눈에 파악.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="value-icon">📅</div>
+                    <div>
+                        <strong>일정 · 수납 · 생일 자동 관리</strong>
+                        <p>대회 일정, 학생별 수납일, 생일 축하를 AI가 자동으로 트래킹하고 알림.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="page-break">
+        <div class="container">
+            <h2 class="section-title">원생 규모별 <span>맞춤 요금</span></h2>
+
+            <p style="color: var(--gray); margin-bottom: 24px;">Starter(₩49,900/30명 이하), Pro(₩69,900/60명 이하) 대비 Premium은 대형 학원에 맞는 볼륨과 전담 서비스를 제공합니다.</p>
+
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>원생 수</th>
+                        <th>알림톡 포함</th>
+                        <th>월 요금</th>
+                        <th>원생당 비용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>60~80명</td>
+                        <td>3,000건</td>
+                        <td class="price-cell">₩119,000</td>
+                        <td>₩1,490~1,980</td>
+                    </tr>
+                    <tr>
+                        <td>80~100명</td>
+                        <td>5,000건</td>
+                        <td class="price-cell">₩139,000</td>
+                        <td>₩1,390~1,740</td>
+                    </tr>
+                    <tr>
+                        <td>100~150명</td>
+                        <td>7,500건</td>
+                        <td class="price-cell">₩179,000</td>
+                        <td>₩1,190~1,790</td>
+                    </tr>
+                    <tr>
+                        <td>150명+</td>
+                        <td>협의</td>
+                        <td class="price-cell">별도 상담</td>
+                        <td>볼륨 할인 적용</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pricing-note">
+                <strong>전 플랜 공통:</strong> AI 비서, 경기 기록, 알림장, 일정 관리, 도착/셔틀 알림<br>
+                <strong>Premium 추가:</strong> 코치 계정 무제한, 전담 매니저, 세금계산서 발행<br>
+                <strong>알림톡 초과 시:</strong> 건당 ₩10 자동 차감 (별도 정산)<br>
+                <strong>결제:</strong> 월 자동결제 / 연 결제 시 10% 할인
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">투자 대비 <span>효과</span></h2>
+            <div class="roi-box">
+                <h3>원생 80명 학원 기준 ROI 분석</h3>
+                <div class="roi-grid">
+                    <div class="roi-item">
+                        <div class="number">60시간</div>
+                        <div class="label">월간 절약 시간 (소통 + 기록)</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="number">₩149,000</div>
+                        <div class="label">월 투자 비용</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="number">5%↑</div>
+                        <div class="label">예상 재등록률 향상</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="number">₩480만</div>
+                        <div class="label">재등록 4명 × 월 120만원 (연간)</div>
+                    </div>
+                </div>
+                <div class="roi-conclusion">
+                    월 <strong>₩149,000</strong> 투자로 연간 <strong>₩480만원</strong> 추가 매출 기대<br>
+                    → <strong>ROI 2,600%</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">기존 방식 vs <span>HoopNote</span></h2>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>기존 (수작업)</th>
+                        <th>HoopNote Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>경기 기록</td>
+                        <td class="cross">종이 / 엑셀</td>
+                        <td class="check">스마트폰 8버튼</td>
+                    </tr>
+                    <tr>
+                        <td>박스스코어</td>
+                        <td class="cross">수동 계산</td>
+                        <td class="check">자동 생성</td>
+                    </tr>
+                    <tr>
+                        <td>학부모 소통</td>
+                        <td class="cross">단톡방 수동 입력</td>
+                        <td class="check">카카오 알림톡 자동</td>
+                    </tr>
+                    <tr>
+                        <td>도착/셔틀 알림</td>
+                        <td class="cross">전화 / 문자</td>
+                        <td class="check">1터치 자동 발송</td>
+                    </tr>
+                    <tr>
+                        <td>선수 성장 데이터</td>
+                        <td class="cross">없음</td>
+                        <td class="check">자동 누적 + 분석</td>
+                    </tr>
+                    <tr>
+                        <td>수납 관리</td>
+                        <td class="cross">엑셀 / 기억</td>
+                        <td class="check">자동 트래킹 + 알림</td>
+                    </tr>
+                    <tr>
+                        <td>학부모 앱 설치</td>
+                        <td class="cross">필요 (낮은 참여율)</td>
+                        <td class="check">불필요 (카톡으로 수신)</td>
+                    </tr>
+                    <tr>
+                        <td>소요 시간</td>
+                        <td class="cross">월 60시간+</td>
+                        <td class="check">월 5시간 이하</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">도입까지 <span>4단계</span></h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-num">1</div>
+                    <h4>상담</h4>
+                    <p>학원 규모와 운영 방식 파악</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">2</div>
+                    <h4>셋업</h4>
+                    <p>명단 등록 + 코치 계정 생성 (1일)</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">3</div>
+                    <h4>7일 체험</h4>
+                    <p>실제 수업에서 기록 + 알림톡 발송 테스트</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">4</div>
+                    <h4>정식 운영</h4>
+                    <p>전담 매니저 배정 + 정기 결제 시작</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <div class="container">
+            <h2>7일 무료 체험으로 직접 확인하세요</h2>
+            <p>설치 없이 웹에서 바로 시작. 체험 후 결정하셔도 됩니다.</p>
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <div class="label">상담 문의</div>
+                    <div class="value"><a href="mailto:dylan.yoo.101@gmail.com">dylan.yoo.101@gmail.com</a></div>
+                </div>
+                <div class="cta-card">
+                    <div class="label">카카오톡</div>
+                    <div class="value"><a href="#">@hoopnote</a></div>
+                </div>
+            </div>
+            <p class="footer-note">
+                HoopNote &nbsp;|&nbsp; 엠비엠에스 &nbsp;|&nbsp; 사업자등록번호: 764-44-01053 &nbsp;|&nbsp; 대표: 유*영<br>
+                hoopnote.kr
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
