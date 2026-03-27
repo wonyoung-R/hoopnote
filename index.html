@@ -12,12 +12,17 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-content">
             <div class="logo">HoopNote</div>
-            <div class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="#features">기능 안내</a>
                 <a href="#how-it-works">사용 방법</a>
                 <a href="#pricing">요금안내</a>
-                <a href="https://academy.hoopnote.kr/login" style="font-weight: 600; color: var(--text-primary);">원장님 로그인</a>
-                <a href="#contact" class="btn btn-nav">7일 무료 체험</a>
+                <a href="https://academy.hoopnote.kr" style="font-weight: 600; color: var(--text-primary);">원장님 로그인</a>
+                <a href="https://academy.hoopnote.kr" class="btn btn-nav">7일 무료 체험</a>
             </div>
         </div>
     </nav>
@@ -29,7 +34,7 @@
                 <h1 class="hero-title">코치가 기록하면,<br>나머지는 <span>HoopNote</span>가 한다.</h1>
                 <p class="hero-desc">유소년 농구 학원을 위한 경기 기록 & 자동 학부모 소통 플랫폼</p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary btn-large">무료로 시작하기</a>
+                    <a href="https://academy.hoopnote.kr" class="btn btn-primary btn-large">무료로 시작하기</a>
                     <a href="#features" class="btn btn-secondary btn-large">기능 둘러보기</a>
                 </div>
             </div>
@@ -85,7 +90,6 @@
                     <span class="chip">💬 카카오톡 자동 발송</span>
                     <span class="chip">🎂 생일 알림</span>
                     <span class="chip">💳 수납일 트래킹</span>
-                    <span class="chip">📊 월말 리포트 생성</span>
                 </div>
                 <a href="#ai-features" class="btn btn-primary btn-large ai-banner-cta">AI 비서 기능 자세히 보기 →</a>
             </div>
@@ -134,15 +138,15 @@
                     <li>
                         <div class="check-icon">✓</div>
                         <div>
-                            <strong>카카오 알림 자동 발송</strong>
+                            <strong>카카오 알림톡 자동 발송</strong>
                             <p>경기 직후 학부모님께 결과와 코치 코멘트 전송</p>
                         </div>
                     </li>
                     <li>
                         <div class="check-icon">✓</div>
                         <div>
-                            <strong>월별 성장 리포트</strong>
-                            <p>선수의 성장 추이를 그래프와 요약으로 한 눈에</p>
+                            <strong>선수별 성장 데이터 누적</strong>
+                            <p>경기별 스탯이 자동 집계되어 선수의 성장 추이를 한눈에</p>
                         </div>
                     </li>
                 </ul>
@@ -199,8 +203,8 @@
                 </div>
                 <div class="problem-card" style="text-align: center;">
                     <div class="problem-icon">📊</div>
-                    <h3>월말 리포트 자동 생성</h3>
-                    <p>경기 데이터와 출결, 코멘트를 종합하여 완성도 높은 월말 리포트를 만들어냅니다.</p>
+                    <h3>선수 스탯 분석</h3>
+                    <p>경기 데이터를 AI가 자동 집계하여 선수별 강점과 개선 포인트를 파악합니다.</p>
                 </div>
             </div>
         </div>
@@ -246,11 +250,12 @@
                     <ul class="plan-features">
                         <li>코치 계정 최대 10명 제공</li>
                         <li>팀/클래스 관리 무제한</li>
-                        <li>카카오 알림톡 발송 무제한</li>
-                        <li>월별 자동 리포트 생성</li>
-                        <li>카카오톡 1:1 전담 라운지 지원</li>
+                        <li>카카오 알림톡 월 500건 포함</li>
+                        <li>추가 알림톡 패키지 별도 구매 가능</li>
+                        <li>AI 비서 (알림장 다듬기, 스탯 분석)</li>
+                        <li>카카오톡 1:1 전담 지원</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary plan-btn">7일 무료로 시작하기</a>
+                    <a href="https://academy.hoopnote.kr" class="btn btn-primary plan-btn">7일 무료로 시작하기</a>
                 </div>
                 <div class="pricing-card">
                     <div class="plan-name">엔터프라이즈 플랜</div>
@@ -283,7 +288,7 @@
                 <p>웹사이트: hoopnote.kr</p>
                 <p>이메일: dylan.yoo.101@gmail.com</p>
                 <p class="kakao-id">카카오톡: @hoopnote</p>
-                <button class="btn btn-primary mt-4">7일 무료 체험 신청하기</button>
+                <a href="https://academy.hoopnote.kr" class="btn btn-primary mt-4">7일 무료 체험 시작하기</a>
             </div>
         </div>
         <div class="footer-bottom">
