@@ -48,6 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Scroll reveal: kakao mockup
+    const kakaoMockup = document.querySelector('.kakao-mockup');
+    if (kakaoMockup) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+        observer.observe(kakaoMockup);
+    }
+
     // Basic animation for mockup buttons to simulate 'recording'
     const statBtns = document.querySelectorAll('.stat-btn');
     const scoreElements = document.querySelectorAll('.score');
