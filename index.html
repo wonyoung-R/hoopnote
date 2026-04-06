@@ -47,11 +47,10 @@
       "url": "https://hoopnote.kr",
       "description": "유소년 농구 학원 코치를 위한 경기 기록, AI 알림장, 카카오 알림톡 자동 발송, 학원비 수납 관리 플랫폼",
       "offers": {
-        "@type": "AggregateOffer",
-        "lowPrice": "300000",
-        "highPrice": "1000000",
+        "@type": "Offer",
+        "price": "0",
         "priceCurrency": "KRW",
-        "offerCount": "3"
+        "description": "베타 학원 모집 중"
       },
       "provider": {
         "@type": "Organization",
@@ -114,14 +113,6 @@
             "@type": "Answer",
             "text": "대회 안내, 수납 안내, 휴강 안내, 보강 안내, 셔틀버스 출발, 셔틀버스 변경, 미출석 알림, 미수금 알림 총 8종의 알림톡 템플릿을 제공합니다."
           }
-        },
-        {
-          "@type": "Question",
-          "name": "요금은 얼마인가요?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Standard ₩300,000/월, Growth ₩500,000/월, Premium ₩1,000,000/월 3가지 플랜이 있으며, 학원비 결제 대행 수수료는 0%입니다."
-          }
         }
       ]
     }
@@ -142,10 +133,10 @@
             <div class="nav-links" id="navLinks">
                 <a href="#features">기능 안내</a>
                 <a href="#how-it-works">사용 방법</a>
-                <a href="#pricing">요금안내</a>
+                <!-- <a href="#pricing">요금안내</a> -->
                 <a href="#faq">FAQ</a>
                 <a href="coming-soon.html" style="font-weight: 600; color: var(--text-primary);">원장님 로그인</a>
-                <a href="https://academy.hoopnote.kr" class="btn btn-nav">시작하기</a>
+                <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-nav">시작하기</a>
             </div>
         </div>
     </nav>
@@ -201,7 +192,7 @@
     <section class="ai-banner-section">
         <div class="container">
             <div class="ai-banner-inner">
-                <div class="ai-banner-badge">🤖 AI 비서 11종 탑재</div>
+                <div class="ai-banner-badge">🤖 AI 비서 탑재</div>
                 <h2 class="ai-banner-title">
                     모닝 브리핑부터 이탈 예측까지<br>
                     <span>원장님 대신 AI가 다 해드립니다.</span>
@@ -215,7 +206,7 @@
                     <span class="chip">💳 수수료 0% 결제</span>
                     <span class="chip">📊 위클리 다이제스트</span>
                 </div>
-                <a href="#ai-features" class="btn btn-primary btn-large ai-banner-cta">AI 비서 11종 자세히 보기 →</a>
+                <a href="#ai-features" class="btn btn-primary btn-large ai-banner-cta">AI 비서 자세히 보기 →</a>
             </div>
         </div>
     </section>
@@ -297,7 +288,7 @@
 
     <section class="section ai-features" id="ai-features" style="background: var(--bg-primary);">
         <div class="container">
-            <h2 class="section-title">AI 비서가 <strong>자동으로</strong> 해주는 11가지</h2>
+            <h2 class="section-title">AI 비서가 <strong>자동으로</strong> 해주는 것들</h2>
             <p class="section-desc" style="text-align: center;">코치님은 기록만 하세요. 분석, 알림, 관리는 전부 AI가 합니다.</p>
             <div class="problem-grid">
                 <div class="problem-card" style="text-align: center;">
@@ -306,54 +297,24 @@
                     <p>매일 아침 7시, 오늘 일정·출석 예상·미수금·주의 학생을 한눈에 정리해 드립니다.</p>
                 </div>
                 <div class="problem-card" style="text-align: center;">
-                    <div class="problem-icon">💡</div>
-                    <h3>인사이트 푸시 + 원탭 액션</h3>
-                    <p>"결석률 40% 상승" 같은 이상 징후를 자동 감지하고, 원탭으로 학부모에게 알림을 보낼 수 있습니다.</p>
-                </div>
-                <div class="problem-card" style="text-align: center;">
                     <div class="problem-icon">🏀</div>
                     <h3>경기 후 원스텝 패키지</h3>
                     <p>경기 종료 직후, 박스스코어 + AI 알림장 + 카카오 발송까지 한 번에 처리됩니다.</p>
                 </div>
                 <div class="problem-card" style="text-align: center;">
-                    <div class="problem-icon">💬</div>
-                    <h3>자연어 명령 + 교차 분석</h3>
-                    <p>"지난달 민재 슈팅 성적 알려줘" — 자연어로 물으면 AI가 데이터를 교차 분석해 답합니다.</p>
-                </div>
-                <div class="problem-card" style="text-align: center;">
-                    <div class="problem-icon">📊</div>
-                    <h3>원장 위클리 다이제스트</h3>
-                    <p>매주 월요일 아침, 지난주 출석·수납·경기 요약 리포트를 자동 발송합니다.</p>
+                    <div class="problem-icon">💳</div>
+                    <h3>미수금 자동 알림</h3>
+                    <p>납부기한이 지나면 AI가 자동으로 학부모에게 재알림을 발송합니다. 코치가 직접 연락할 필요 없습니다.</p>
                 </div>
                 <div class="problem-card" style="text-align: center;">
                     <div class="problem-icon">🚨</div>
                     <h3>이탈 예측 알림</h3>
-                    <p>결석+지각 40% 이상 상승 시 "이탈 위험" 경고를 보내고, 학부모 연락을 제안합니다.</p>
-                </div>
-                <div class="problem-card" style="text-align: center;">
-                    <div class="problem-icon">📅</div>
-                    <h3>시즌 인텔리전스</h3>
-                    <p>시즌별 선수 성장 추이, 팀 전력 변화를 AI가 분석하여 코칭 전략을 제안합니다.</p>
+                    <p>결석+지각이 급증하면 "이탈 위험" 경고를 보내고, 학부모 연락을 제안합니다.</p>
                 </div>
                 <div class="problem-card" style="text-align: center;">
                     <div class="problem-icon">🤖</div>
                     <h3>학부모 FAQ 자동 응대</h3>
                     <p>"수업 시간 언제예요?" 같은 반복 질문에 AI가 맥락을 파악하여 자동 답변합니다.</p>
-                </div>
-                <div class="problem-card" style="text-align: center;">
-                    <div class="problem-icon">📝</div>
-                    <h3>알림장 맥락 기억</h3>
-                    <p>이전 알림장 내용을 기억하여 "지난번에 말씀드린 드리블 연습..."처럼 자연스럽게 이어갑니다.</p>
-                </div>
-                <div class="problem-card" style="text-align: center;">
-                    <div class="problem-icon">🔄</div>
-                    <h3>스마트 보강 스케줄러</h3>
-                    <p>결석 학생의 보강 가능 시간대를 자동 탐색하고, 일정 조율까지 도와줍니다.</p>
-                </div>
-                <div class="problem-card" style="text-align: center;">
-                    <div class="problem-icon">💳</div>
-                    <h3>미수금 자동 알림</h3>
-                    <p>납부기한이 지나면 AI가 자동으로 학부모에게 재알림을 발송합니다. 코치가 직접 연락할 필요 없습니다.</p>
                 </div>
             </div>
         </div>
@@ -448,7 +409,7 @@
         </div>
     </section>
 
-    <section class="section pricing" id="pricing">
+    <section class="section pricing" id="pricing" style="display: none;">
         <div class="container">
             <h2 class="section-title">합리적인 요금, 압도적인 가치</h2>
             <p class="section-desc" style="text-align:center; margin-bottom: 40px;">학원비 결제 대행 수수료 <strong>0%</strong> · 코치 수 <strong>무제한</strong></p>
@@ -516,7 +477,7 @@
                 </div>
                 <div class="faq-item">
                     <h3 class="faq-q">보조 코치도 사용 가능한가요?</h3>
-                    <p class="faq-a">네. 원장님이 카카오톡으로 초대 링크를 보내면, 코치가 링크 클릭 → 카카오 로그인 → 원장님 승인 후 바로 사용 가능합니다. 모든 플랜에서 코치 수 무제한입니다.</p>
+                    <p class="faq-a">네. 원장님이 카카오톡으로 초대 링크를 보내면, 코치가 링크 클릭 → 카카오 로그인 → 원장님 승인 후 바로 사용 가능합니다. 코치 수 무제한입니다.</p>
                 </div>
                 <div class="faq-item">
                     <h3 class="faq-q">학원비 수납도 되나요?</h3>
