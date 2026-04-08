@@ -903,6 +903,172 @@ body {
     .section-title { font-size: 1.8rem; }
 }
 
+/* Earlybird Section */
+.earlybird-section {
+    padding: 0;
+}
+
+.earlybird-inner {
+    background: #E05C2A;
+    border-radius: 24px;
+    padding: 48px 40px;
+    text-align: center;
+    margin: -40px 20px 0;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 20px 60px rgba(224, 92, 42, 0.3);
+}
+
+.earlybird-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.earlybird-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.earlybird-value {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 24px;
+}
+
+.earlybird-value strong {
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.earlybird-conditions {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.earlybird-conditions li {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.earlybird-conditions li strong {
+    font-weight: 800;
+}
+
+.btn-earlybird {
+    display: inline-block;
+    padding: 18px 40px;
+    background: #fff;
+    color: #E05C2A;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btn-earlybird:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Earlybird tag in pricing card */
+.earlybird-tag {
+    background: rgba(224, 92, 42, 0.15);
+    border: 1px solid rgba(224, 92, 42, 0.3);
+    color: #ff7b3a;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.plan-sub {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    margin-top: -4px;
+}
+
+/* Closing Section */
+.closing-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+.closing-inner {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.closing-title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.closing-seats {
+    font-size: 1.3rem;
+    color: #E05C2A;
+    margin-bottom: 40px;
+}
+
+.closing-seats strong {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.closing-cta {
+    padding: 20px 48px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 0 40px rgba(255, 107, 0, 0.3);
+}
+
+.closing-cta:hover {
+    box-shadow: 0 0 60px rgba(255, 107, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .earlybird-inner {
+        padding: 32px 20px;
+        margin: -20px 12px 0;
+    }
+    .earlybird-title {
+        font-size: 1.4rem;
+    }
+    .earlybird-conditions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .closing-title {
+        font-size: 1.5rem;
+    }
+}
+
 /* FAQ */
 .faq-list {
     max-width: 800px;

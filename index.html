@@ -13,7 +13,7 @@
     <!-- Open Graph (카카오톡, 페이스북 공유) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="HoopNote | 유소년 농구 학원 경기 기록 & AI 알림장">
-    <meta property="og:description" content="코치가 기록하면, 나머지는 HoopNote가 합니다. 경기 기록, AI 알림장, 카카오 알림톡, 학원비 수납까지 올인원.">
+    <meta property="og:description" content="원비 달라는 말, 아직도 직접 하세요? 수납, 출석, 학부모 소통까지 — HoopNote가 대신합니다.">
     <meta property="og:url" content="https://hoopnote.kr">
     <meta property="og:site_name" content="HoopNote">
     <meta property="og:locale" content="ko_KR">
@@ -24,7 +24,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="HoopNote | 유소년 농구 학원 경기 기록 & AI 알림장">
-    <meta name="twitter:description" content="코치가 기록하면, 나머지는 HoopNote가 합니다.">
+    <meta name="twitter:description" content="원비 달라는 말, 아직도 직접 하세요? 수납, 출석, 학부모 소통까지 — HoopNote가 대신합니다.">
     <meta name="twitter:image" content="https://hoopnote.kr/og-image.png">
 
     <!-- 네이버 웹마스터 -->
@@ -47,10 +47,11 @@
       "url": "https://hoopnote.kr",
       "description": "유소년 농구 학원 코치를 위한 경기 기록, AI 알림장, 카카오 알림톡 자동 발송, 학원비 수납 관리 플랫폼",
       "offers": {
-        "@type": "Offer",
-        "price": "0",
+        "@type": "AggregateOffer",
+        "lowPrice": "349000",
+        "highPrice": "549000",
         "priceCurrency": "KRW",
-        "description": "베타 학원 모집 중"
+        "offerCount": "3"
       },
       "provider": {
         "@type": "Organization",
@@ -135,8 +136,8 @@
                 <a href="#how-it-works">사용 방법</a>
                 <a href="#pricing">요금안내</a>
                 <a href="#faq">FAQ</a>
-                <a href="https://academy.hoopnote.kr" style="font-weight: 600; color: var(--text-primary);">원장님 로그인</a>
-                <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-nav">시작하기</a>
+                <!-- 원장님 로그인 히든 처리 -->
+                <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-nav">이번 달 도입 확정하기 →</a>
             </div>
         </div>
     </nav>
@@ -144,11 +145,11 @@
     <header class="hero">
         <div class="container hero-content">
             <div class="hero-text-wrapper">
-                <span class="badge">🔥 베타 학원 모집 중</span>
-                <h1 class="hero-title">코치가 기록하면,<br>나머지는 <span>HoopNote</span>가 한다.</h1>
-                <p class="hero-desc">유소년 농구 학원을 위한 경기 기록 & 자동 학부모 소통 플랫폼</p>
+                <span class="badge">🔥 선착순 3개 아카데미 · 4월 마감</span>
+                <h1 class="hero-title">원비 달라는 말,<br>아직도 직접 하세요?</h1>
+                <p class="hero-desc">수납, 출석, 학부모 소통까지 — HoopNote가 대신합니다.<br>코치는 코칭만 하세요.</p>
                 <div class="hero-actions">
-                    <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary btn-large">우리 학원도 써볼까?</a>
+                    <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary btn-large">이번 달 도입 확정하기 →</a>
                     <a href="#features" class="btn btn-secondary btn-large">기능 둘러보기</a>
                 </div>
             </div>
@@ -187,6 +188,23 @@
         </div>
         <div class="gradient-glow"></div>
     </header>
+
+    <!-- 얼리버드 섹션 (히어로 직후) -->
+    <section class="earlybird-section">
+        <div class="container">
+            <div class="earlybird-inner">
+                <div class="earlybird-badge">🎁 얼리버드 특별 혜택</div>
+                <h2 class="earlybird-title">4월 도입 확정 시 — Growth 플랜 1개월 무료</h2>
+                <p class="earlybird-value">약 <strong>55만원</strong> 상당</p>
+                <ul class="earlybird-conditions">
+                    <li>선착순 <strong>5개</strong> 아카데미 한정</li>
+                    <li>4월 30일까지 도입 확정 시 적용</li>
+                    <li>기능 준비 완료 즉시 바로 시작</li>
+                </ul>
+                <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-earlybird">지금 도입 확정하기 →</a>
+            </div>
+        </div>
+    </section>
 
     <!-- AI 비서 핵심 하이라이트 배너 -->
     <section class="ai-banner-section">
@@ -412,11 +430,11 @@
     <section class="section pricing" id="pricing">
         <div class="container">
             <h2 class="section-title">학원 규모에 맞는 플랜</h2>
-            <p class="section-desc" style="text-align:center; margin-bottom: 40px;">학원비 결제 대행 수수료 <strong>0%</strong> · 코치 수 <strong>무제한</strong> · 요금은 별도 문의</p>
+            <p class="section-desc" style="text-align:center; margin-bottom: 40px;">학원비 결제 대행 수수료 <strong>0%</strong> · 코치 수 <strong>무제한</strong></p>
             <div class="pricing-grid three-col">
                 <div class="pricing-card">
                     <div class="plan-name">Standard</div>
-                    <div class="plan-price" style="font-size:1.8rem;">별도 문의</div>
+                    <div class="plan-price">₩349,000<span>/월</span></div>
                     <p class="plan-desc">매일 쓰는 핵심 기능</p>
                     <ul class="plan-features">
                         <li>결제 대행 (수수료 0%)</li>
@@ -426,12 +444,13 @@
                         <li>AI 알림장 (학생별 자동 분류)</li>
                         <li>코치 AI 비서</li>
                     </ul>
-                    <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary plan-btn">결제하기</a>
+                    <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary plan-btn">이번 달 도입 확정하기 →</a>
                 </div>
                 <div class="pricing-card premium">
                     <div class="plan-name">Growth</div>
-                    <div class="plan-price" style="font-size:1.8rem;">별도 문의</div>
+                    <div class="plan-price">₩549,000<span>/월</span></div>
                     <p class="plan-desc">데이터로 관리하는 프리미엄 아카데미</p>
+                    <div class="earlybird-tag">🎁 4월 도입 확정 시 1개월 무료</div>
                     <ul class="plan-features">
                         <li>Standard 전체 포함</li>
                         <li>AI 인사이트 7종 (출석/미수금/선수 분석)</li>
@@ -440,12 +459,13 @@
                         <li>상담 AI 요약 + 추천 메시지</li>
                         <li>원장 대시보드 + AI 활동 로그</li>
                     </ul>
-                    <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary plan-btn">결제하기</a>
+                    <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary plan-btn">이번 달 도입 확정하기 →</a>
                 </div>
                 <div class="pricing-card">
                     <div class="plan-name">Premium</div>
                     <div class="plan-price" style="font-size:1.8rem;">별도 문의</div>
                     <p class="plan-desc">코치는 코칭만. 나머지는 전부 AI가.</p>
+                    <p class="plan-sub">규모에 따라 맞춤 견적</p>
                     <ul class="plan-features">
                         <li>Growth 전체 포함</li>
                         <li>학부모 FAQ 자동 응답</li>
@@ -454,7 +474,7 @@
                         <li>생일 축하 · 환영 · 일정 자동 발송</li>
                         <li>1:1 우선 지원 + 전용 온보딩</li>
                     </ul>
-                    <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary plan-btn">결제하기</a>
+                    <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary plan-btn">이번 달 도입 확정하기 →</a>
                 </div>
             </div>
             <div class="roi-banner">
@@ -495,18 +515,29 @@
         </div>
     </section>
 
+    <!-- 클로징 섹션 -->
+    <section class="closing-section">
+        <div class="container">
+            <div class="closing-inner">
+                <h2 class="closing-title">지금 도입을 확정하시면,<br>기능이 준비되는 순간부터 바로 시작하실 수 있습니다.</h2>
+                <p class="closing-seats">자리는 <strong>5개</strong>입니다.</p>
+                <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary btn-large closing-cta">이번 달 도입 확정하기 →</a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer" id="contact">
         <div class="container footer-content">
             <div class="footer-brand">
                 <h2>HoopNote</h2>
-                <p>코치는 기록만 하세요. 나머지는 저희가 합니다.</p>
+                <p>수납, 출석, 학부모 소통까지 — HoopNote가 대신합니다.</p>
             </div>
             <div class="footer-contact">
                 <h3>문의 및 가입</h3>
                 <p>웹사이트: hoopnote.kr</p>
                 <p>이메일: hello@hoopnote.kr</p>
                 <p class="kakao-id">카카오톡: @hoopnote</p>
-                <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary mt-4">우리 학원도 써볼까?</a>
+                <a href="https://wonzero.notion.site/33a2d5a7da678071b8a8c02552af95ab?pvs=105" class="btn btn-primary mt-4">이번 달 도입 확정하기 →</a>
             </div>
         </div>
         <div class="footer-bottom">
