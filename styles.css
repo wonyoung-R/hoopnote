@@ -1009,6 +1009,13 @@ body {
     margin-top: -4px;
 }
 
+.plan-highlight {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
 /* Closing Section */
 .closing-section {
     padding: 100px 0;
