@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
+            navbar.style.background = 'rgba(246,242,234,0.97)';
+            navbar.style.boxShadow = '0 1px 0 rgba(20,20,20,.08), 0 4px 16px rgba(20,20,20,.06)';
         } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+            navbar.style.background = 'rgba(246,242,234,0.92)';
             navbar.style.boxShadow = 'none';
         }
     });
