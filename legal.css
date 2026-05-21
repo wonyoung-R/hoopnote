@@ -1,0 +1,105 @@
+/* HoopNote 법적 고지 페이지 공통 스타일 — index.html(styles.css) 톤 계승 */
+:root {
+  --paper: #F6F2EA;
+  --card: #FFFFFF;
+  --ink: #141414;
+  --ink-2: #2A2A2A;
+  --muted: #6B6B6B;
+  --line: #E5DFD1;
+  --orange: #EE6730;
+  --orange-2: #D95821;
+  --orange-soft: #FFE3D4;
+  --orange-wash: #FFF3EA;
+  --f-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --r-md: 12px;
+  --r-lg: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: -.005em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 헤더 */
+.legal-header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(246,242,234,.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.legal-header .logo {
+  font-weight: 800; font-size: 18px; color: var(--ink);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.legal-header .logo .mark {
+  width: 14px; height: 14px; border-radius: 4px; background: var(--orange);
+  display: inline-block;
+}
+.legal-header .home-link {
+  font-size: 14px; color: var(--muted); text-decoration: none;
+  padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
+  transition: all .15s;
+}
+.legal-header .home-link:hover { color: var(--orange); border-color: var(--orange); }
+
+/* 본문 컨테이너 */
+.legal-main { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
+.legal-main h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; }
+.legal-meta { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+.legal-main h2 {
+  font-size: 19px; font-weight: 700; margin: 40px 0 12px;
+  padding-top: 24px; border-top: 1px solid var(--line);
+}
+.legal-main h2:first-of-type { border-top: none; padding-top: 0; }
+.legal-main h3 { font-size: 16px; font-weight: 700; margin: 24px 0 8px; }
+.legal-main p, .legal-main li { color: var(--ink-2); }
+.legal-main ul, .legal-main ol { padding-left: 22px; }
+.legal-main li { margin: 6px 0; }
+.legal-main table {
+  width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px;
+}
+.legal-main th, .legal-main td {
+  border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top;
+}
+.legal-main th { background: var(--orange-wash); font-weight: 700; }
+
+/* 초안/검토 배너 */
+.legal-draft {
+  background: var(--orange-wash); border: 1px solid var(--orange-soft);
+  border-radius: var(--r-md); padding: 14px 18px; margin-bottom: 28px;
+  font-size: 14px; color: var(--orange-2);
+}
+.legal-draft strong { color: var(--orange-2); }
+
+/* 변호사 검토 필요 마커 */
+.review {
+  background: var(--orange-wash); border-left: 3px solid var(--orange);
+  padding: 4px 10px; border-radius: 4px; font-size: 14px; color: var(--orange-2);
+  display: inline-block; margin: 2px 0;
+}
+
+/* placeholder (사업자 정보 미확정) */
+.ph { color: var(--orange-2); font-weight: 600; }
+
+/* 푸터 */
+.legal-foot {
+  border-top: 1px solid var(--line); padding: 28px 24px;
+  text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8;
+}
+.legal-foot a { color: var(--muted); }
+.legal-foot .biz { display: block; margin-top: 6px; }
+
+@media (max-width: 600px) {
+  .legal-main { padding: 32px 18px 72px; }
+  .legal-main h1 { font-size: 24px; }
+}
