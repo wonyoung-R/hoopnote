@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hoopnote.kr/sitemap.xml
+Sitemap: https://www.hoopnote.kr/sitemap.xml

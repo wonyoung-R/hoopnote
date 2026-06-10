@@ -283,7 +283,11 @@ html, body {
 .step p { font-size: 15px; color: var(--muted); line-height: 1.6; margin: 0; }
 
 /* === PRICING === */
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+/* 2026-06-11: 단일 Starter 플랜 (사장 결정) — 카드 1장 중앙 정렬.
+   (옛 repeat(3,1fr)은 Premium 폐지 후 우측 공백을 만들던 잔재) */
+.pricing-grid { display: grid; grid-template-columns: min(480px, 100%); justify-content: center; gap: 20px; }
+.pricing-more { text-align: center; color: var(--muted); font-size: 14px; margin: 20px 0 0; }
+.pricing-more a { color: var(--orange); font-weight: 600; }
 .plan {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg);
   padding: 28px; display: flex; flex-direction: column; gap: 16px; min-height: 480px;
@@ -430,8 +434,6 @@ footer { padding: 40px 0 60px; border-top: 1px solid var(--line); font-size: 13p
   .scenarios-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
   .split { grid-template-columns: 1fr; gap: 36px; }
   .split .art { aspect-ratio: 4/3; }
-  .pricing-grid { grid-template-columns: 1fr 1fr; }
-  .pricing-grid .plan:last-child { grid-column: span 2; }
   .faq-layout { grid-template-columns: 1fr; gap: 28px; }
   .final-cta { grid-template-columns: 1fr; gap: 28px; padding: 48px 32px; }
   .final-cta .big { font-size: 40px; }
@@ -467,7 +469,6 @@ footer { padding: 40px 0 60px; border-top: 1px solid var(--line); font-size: 13p
   .compare .row > div { padding: 12px 14px; font-size: 13px; }
   .compare .row.head > div { padding: 14px; }
   .pricing-grid { grid-template-columns: 1fr; }
-  .pricing-grid .plan:last-child { grid-column: span 1; }
   .final-cta { padding: 40px 24px; margin: 0 0 60px; }
   .final-cta .big { font-size: 30px; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
