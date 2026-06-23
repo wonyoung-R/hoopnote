@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hoopnote 도입 안내 정보 | 카톡 상담 없이 자료 확인</title>
+  <meta name="description" content="학생 수, 코치 수, 현재 쓰는 도구를 남긴 원장님께 보내는 hoopnote 도입 안내 정보 페이지입니다. 단일 요금제, 추천 시작 범위, 2개월 무료 혜택 기준을 정리했습니다.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.hoopnote.kr/docs/adoption-manual.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body { background: var(--paper); }
+    .manual-shell { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
+    .manual-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding: 28px 0; border-bottom: 1px solid var(--line);
+    }
+    .manual-nav .back {
+      color: var(--blue); text-decoration: none; font-size: 14px; font-weight: 700;
+    }
+    .manual-hero {
+      padding: 74px 0 46px;
+      display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: 48px; align-items: end;
+    }
+    .manual-hero h1 {
+      font-size: 56px; line-height: 1.04; letter-spacing: -.035em;
+      margin: 0 0 18px; font-weight: 800;
+    }
+    .manual-hero h1 em { color: var(--blue); font-style: normal; }
+    .manual-hero p {
+      margin: 0; color: var(--ink-2); font-size: 18px; line-height: 1.65;
+      max-width: 620px;
+    }
+    .manual-hero .hero-note {
+      margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .hero-note span {
+      display: inline-flex; align-items: center; min-height: 34px;
+      padding: 7px 12px; border-radius: var(--r-pill);
+      background: var(--blue-wash); border: 1px solid var(--line);
+      color: var(--blue-2); font-size: 13px; font-weight: 800;
+    }
+    .manual-card {
+      position: relative; overflow: hidden;
+      border-radius: var(--r-xl);
+      padding: 28px;
+      background: linear-gradient(145deg, var(--blue-3), var(--blue-2) 60%, var(--blue));
+      color: #fff; box-shadow: var(--sh-pop);
+    }
+    .manual-card::before {
+      content: ""; position: absolute; right: -82px; top: -92px;
+      width: 230px; height: 230px; border-radius: 50%;
+      background: var(--basketball-seams), var(--orange);
+      background-size: 100% 100%, auto;
+      transform: rotate(-11deg); opacity: .9;
+    }
+    .manual-card h2 {
+      position: relative; margin: 0 0 20px;
+      font-size: 15px; font-family: var(--f-mono); letter-spacing: .12em;
+      color: var(--orange-soft);
+    }
+    .manual-card ol {
+      position: relative; list-style: none; margin: 0; padding: 0;
+      display: grid; gap: 14px;
+    }
+    .manual-card li {
+      display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start;
+      color: rgba(255,255,255,.9); font-size: 14px; line-height: 1.5;
+    }
+    .manual-card li span {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: rgba(255,255,255,.12); color: #fff;
+      font-family: var(--f-mono); font-size: 12px; font-weight: 800;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .manual-section { padding: 56px 0; border-top: 1px solid var(--line); }
+    .manual-section h2 {
+      font-size: 34px; line-height: 1.15; letter-spacing: -.025em;
+      margin: 0 0 18px; font-weight: 800;
+    }
+    .manual-section > p {
+      margin: 0 0 28px; color: var(--ink-2); font-size: 17px; line-height: 1.65;
+      max-width: 720px;
+    }
+    .guide-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px; background: var(--line); border: 1px solid var(--line);
+      border-radius: var(--r-lg); overflow: hidden;
+    }
+    .guide-item {
+      background: var(--card); padding: 26px; min-height: 210px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .guide-item .tag {
+      font-family: var(--f-mono); color: var(--blue);
+      font-size: 11px; letter-spacing: .12em; font-weight: 800;
+    }
+    .guide-item h3 {
+      margin: 0; color: var(--ink); font-size: 20px; line-height: 1.25;
+      letter-spacing: -.015em;
+    }
+    .guide-item p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .checklist {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .check {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 16px; border: 1px solid var(--line);
+      border-radius: var(--r-sm); background: var(--blue-wash);
+    }
+    .check b {
+      flex: none; width: 22px; height: 22px; border-radius: 6px;
+      display: grid; place-items: center; background: #fff;
+      color: var(--blue); border: 1px solid var(--line); font-size: 12px;
+    }
+    .check span { color: var(--ink-2); font-size: 14px; line-height: 1.5; }
+    .flow {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .flow-step {
+      border: 1px solid var(--line); border-radius: var(--r-md);
+      padding: 20px; background: #fff; min-height: 190px;
+    }
+    .flow-step strong {
+      display: block; color: var(--orange-2);
+      font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em;
+      margin-bottom: 12px;
+    }
+    .flow-step h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: -.01em; }
+    .flow-step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .message-box {
+      display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: 20px; align-items: stretch;
+    }
+    .message-card {
+      border: 1px solid var(--line); border-radius: var(--r-lg);
+      padding: 24px; background: var(--card);
+    }
+    .message-card h3 { margin: 0 0 12px; font-size: 20px; letter-spacing: -.015em; }
+    .message-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .template {
+      background: var(--ink); color: #fff; border-radius: var(--r-lg);
+      padding: 24px; font-size: 14px; line-height: 1.75;
+      white-space: pre-line;
+    }
+    .template strong { color: var(--orange-soft); }
+    .manual-cta {
+      margin: 24px 0 80px; padding: 34px;
+      border-radius: var(--r-xl);
+      background: linear-gradient(135deg, var(--blue-3), var(--blue));
+      color: #fff; display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; overflow: hidden; position: relative;
+    }
+    .manual-cta::after {
+      content: ""; position: absolute; right: -80px; top: -110px;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: var(--basketball-seams), var(--orange);
+      background-size: 100% 100%, auto; opacity: .9; transform: rotate(-10deg);
+    }
+    .manual-cta h2 { position: relative; z-index: 1; margin: 0; font-size: 30px; line-height: 1.15; }
+    .manual-cta p { position: relative; z-index: 1; margin: 8px 0 0; color: #D7E4F6; font-size: 14px; }
+    .manual-cta .btn { position: relative; z-index: 1; flex: none; --btn-base: var(--orange); color: var(--ink); }
+    @media (max-width: 900px) {
+      .manual-hero { grid-template-columns: 1fr; padding-top: 52px; }
+      .manual-hero h1 { font-size: 42px; }
+      .guide-grid, .flow, .message-box { grid-template-columns: 1fr; }
+      .checklist { grid-template-columns: 1fr; }
+      .manual-cta { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .manual-shell { padding: 0 24px; }
+      .manual-nav { align-items: flex-start; flex-direction: column; }
+      .manual-hero h1 { font-size: 34px; }
+      .manual-section h2 { font-size: 28px; }
+      .manual-section { padding: 44px 0; }
+      .manual-card, .manual-cta { padding: 24px; }
+      .manual-cta .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="manual-shell">
+    <nav class="manual-nav" aria-label="문서 내비게이션">
+      <a class="logo" href="../index.html"><span class="mark"></span>hoopnote</a>
+      <a class="back" href="../index.html">랜딩페이지로 돌아가기</a>
+    </nav>
+
+    <header class="manual-hero">
+      <div>
+        <div class="eyebrow">ADOPTION GUIDE · 도입 안내 정보</div>
+        <h1>카톡 상담 없이,<br><em>도입 안내서부터</em><br>가볍게 확인하세요.</h1>
+        <p>이 페이지는 학생 수, 코치 수, 현재 쓰는 도구를 남긴 원장님께 보내는 도입 안내 정보입니다. hoopnote가 어떤 규모와 운영 방식에 잘 맞는지, 단일 요금제와 2개월 무료 혜택 기준을 먼저 확인할 수 있습니다.</p>
+        <div class="hero-note">
+          <span>학생 수 입력</span>
+          <span>코치 수 입력</span>
+          <span>현재 쓰는 도구 입력</span>
+        </div>
+      </div>
+      <aside class="manual-card" aria-label="도입 안내 요약">
+        <h2>AFTER FORM</h2>
+        <ol>
+          <li><span>01</span><div>학생 수, 코치 수, 현재 쓰는 도구만 간단히 남깁니다.</div></li>
+          <li><span>02</span><div>입력한 정보에 맞춰 이 도입 안내 정보 페이지를 받아봅니다.</div></li>
+          <li><span>03</span><div>상담이 필요하면 그때 선택하고, 바로 카톡 대화로 이어지지 않습니다.</div></li>
+          <li><span>04</span><div>규모가 맞는 경우 연간 결제 2개월 무료 혜택 기준을 확인합니다.</div></li>
+        </ol>
+      </aside>
+    </header>
+
+    <section class="manual-section">
+      <h2>안내서를 받기 전에 남기는 정보</h2>
+      <p>도입 문의를 상담으로 시작하지 않습니다. 작은 학원에도 부담이 없도록 학생 수, 코치 수, 현재 쓰는 도구만 먼저 확인합니다.</p>
+      <div class="guide-grid">
+        <article class="guide-item">
+          <span class="tag">01 · FIT CHECK</span>
+          <h3>규모를 먼저 확인</h3>
+          <p>단일 요금제이기 때문에 학생 수와 코치 수를 기준으로 비용 대비 효과를 먼저 가늠합니다.</p>
+        </article>
+        <article class="guide-item">
+          <span class="tag">02 · LOW CONTACT</span>
+          <h3>상담 없이 자료 받기</h3>
+          <p>카톡으로 길게 설명하지 않아도 됩니다. 현재 쓰는 도구만 남기면 안내 정보 페이지를 받아볼 수 있습니다.</p>
+        </article>
+        <article class="guide-item">
+          <span class="tag">03 · NEXT STEP</span>
+          <h3>맞으면 다음 단계로</h3>
+          <p>바로 결제를 요구하지 않습니다. 안내서를 보고 맞는다고 느낄 때만 다음 단계로 넘어가면 됩니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="manual-section">
+      <h2>필수 입력은 3개면 충분합니다</h2>
+      <p>처음부터 명함이나 긴 소개를 요구하지 않습니다. 아래 3가지만 있어도 도입 안내 정보를 보낼 수 있습니다.</p>
+      <div class="checklist">
+        <div class="check"><b>1</b><span>학생 수: 현재 등록 학생 수 또는 대략적인 규모</span></div>
+        <div class="check"><b>2</b><span>코치 수: 원장님 포함 함께 기록하고 관리할 인원</span></div>
+        <div class="check"><b>3</b><span>현재 쓰는 도구: 카톡, 엑셀, 결제선생, 별도 앱</span></div>
+        <div class="check"><b>+</b><span>선택 입력: 학원명, 지역, 가장 줄이고 싶은 업무</span></div>
+      </div>
+    </section>
+
+    <section class="manual-section">
+      <h2>안내서 발송 흐름</h2>
+      <p>정보를 남기면 바로 상담으로 넘어가지 않고, 먼저 도입 안내 정보 페이지를 보내는 구조입니다.</p>
+      <div class="flow">
+        <article class="flow-step">
+          <strong>STEP 01</strong>
+          <h3>간단 정보 입력</h3>
+          <p>학생 수, 코치 수, 현재 쓰는 도구를 남깁니다. 이 단계에서는 긴 상담이 필요하지 않습니다.</p>
+        </article>
+        <article class="flow-step">
+          <strong>STEP 02</strong>
+          <h3>안내 정보 발송</h3>
+          <p>입력한 규모를 기준으로 단일 요금제, 추천 시작 범위, 준비 항목을 안내합니다.</p>
+        </article>
+        <article class="flow-step">
+          <strong>STEP 03</strong>
+          <h3>스스로 검토</h3>
+          <p>원장님이 안내서를 보고 우리 학원에 맞는지 먼저 판단합니다. 카톡 상담은 선택입니다.</p>
+        </article>
+        <article class="flow-step">
+          <strong>STEP 04</strong>
+          <h3>다음 단계 선택</h3>
+          <p>규모와 방향이 맞으면 연간 결제 2개월 무료 혜택과 시작 절차를 확인합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="manual-section">
+      <h2>자동 회신 메시지 예시</h2>
+      <p>정보 입력 후 바로 보내면 좋은 짧은 안내문입니다. 카톡 상담을 유도하지 않고, 도입 안내 정보 페이지를 먼저 전달합니다.</p>
+      <div class="message-box">
+        <div class="message-card">
+          <h3>보내는 목적</h3>
+          <p>원장님이 입력 후 바로 자료를 받을 수 있게 안내합니다. 학생 수, 코치 수, 현재 쓰는 도구를 기준으로 다음 정보를 보내는 흐름입니다.</p>
+        </div>
+        <div class="template"><strong>[hoopnote 도입 안내서]</strong>
+원장님, 도입 안내서 요청이 접수되었습니다.
+
+남겨주신 학생 수, 코치 수, 현재 쓰는 도구를 기준으로 아래 안내 정보를 보내드립니다.
+
+1. hoopnote가 잘 맞는 학원 규모
+2. 단일 요금제 기준
+3. 추천 시작 범위
+4. 2개월 무료 혜택 적용 기준
+
+카톡 상담은 필수가 아닙니다.
+안내서를 확인한 뒤 필요하실 때만 다음 단계를 선택해 주세요.</div>
+      </div>
+    </section>
+
+    <section class="manual-section">
+      <h2>안내서를 볼 때 알아두면 좋은 기준</h2>
+      <div class="guide-grid">
+        <article class="guide-item">
+          <span class="tag">PAYMENT</span>
+          <h3>수납은 결제선생에서 관리</h3>
+          <p>hoopnote는 수납 알림톡에 결제선생 링크를 안내할 수 있지만, 결제 금액과 장부는 원장님이 직접 관리합니다.</p>
+        </article>
+        <article class="guide-item">
+          <span class="tag">APPROVAL</span>
+          <h3>발송은 원장 승인 후 진행</h3>
+          <p>알림장, 리포트, 수납 안내는 원장님 확인 후 발송하는 흐름을 기본으로 둡니다.</p>
+        </article>
+        <article class="guide-item">
+          <span class="tag">SCOPE</span>
+          <h3>규모가 중요합니다</h3>
+          <p>단일 요금제이기 때문에 학생 수와 코치 수에 따라 체감 가치가 달라질 수 있습니다. 안내서는 그 판단을 돕기 위한 자료입니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="manual-cta">
+      <div>
+        <h2>아직 신청 전이라면,<br>도입 안내서부터 받아보세요.</h2>
+        <p>학생 수, 코치 수, 현재 쓰는 도구만 남기면 됩니다.</p>
+      </div>
+      <a class="btn btn-pri btn-lg" href="../guide-request.html">도입 안내서 받아보기</a>
+    </section>
+  </main>
+</body>
+</html>
