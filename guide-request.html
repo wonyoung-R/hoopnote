@@ -188,6 +188,7 @@
             <small>실제 연동 시 이 이메일로 도입 안내 정보 페이지를 보내드립니다.</small>
           </div>
 
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <button class="btn btn-pri btn-lg request-submit" type="submit">도입 안내 정보 페이지 받기</button>
           <p class="privacy-note">입력한 정보는 도입 안내 목적의 규모 판단과 안내 발송에만 사용됩니다.</p>
         </form>
@@ -202,23 +203,58 @@
   </main>
 
   <script>
-    document.getElementById('guideForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      var students = document.getElementById('studentCount').value;
-      var coaches = document.getElementById('coachCount').value;
-      var tools = Array.from(document.querySelectorAll('input[name="tools"]:checked')).map(function (input) {
-        return input.value;
-      });
-      if (!tools.length) {
-        alert('현재 쓰는 도구를 하나 이상 선택해 주세요.');
-        return;
+    (function () {
+      var form = document.getElementById('guideForm');
+      var btn = form.querySelector('.request-submit');
+      var ENDPOINT = 'https://academy.hoopnote.kr/api/landing/guide-request';
+
+      function showResult(students, coaches, tools) {
+        document.getElementById('guideSummary').textContent =
+          '학생 수 ' + students + ', 코치 수 ' + coaches + ', 현재 도구 ' + tools.join(', ') +
+          ' 기준으로 도입 안내 정보를 확인할 수 있습니다.';
+        var result = document.getElementById('guideResult');
+        result.classList.add('is-visible');
+        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-      document.getElementById('guideSummary').textContent =
-        '학생 수 ' + students + ', 코치 수 ' + coaches + ', 현재 도구 ' + tools.join(', ') +
-        ' 기준으로 도입 안내 정보를 확인할 수 있습니다.';
-      document.getElementById('guideResult').classList.add('is-visible');
-      document.getElementById('guideResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var students = document.getElementById('studentCount').value;
+        var coaches = document.getElementById('coachCount').value;
+        var contact = document.getElementById('contact').value;
+        var tools = Array.from(document.querySelectorAll('input[name="tools"]:checked')).map(function (input) {
+          return input.value;
+        });
+        var company = (document.getElementById('company') || {}).value || ''; // 허니팟(봇 차단)
+
+        if (!tools.length) {
+          alert('현재 쓰는 도구를 하나 이상 선택해 주세요.');
+          return;
+        }
+
+        var original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = '안내서 준비 중...';
+
+        // lead 저장(best-effort). 네트워크 실패해도 안내서(정적 페이지)는 보여준다.
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            studentCount: students,
+            coachCount: coaches,
+            tools: tools,
+            contact: contact,
+            company: company
+          })
+        }).catch(function () { /* lead 유실은 서버 로그로만, UX는 진행 */ })
+          .finally(function () {
+            btn.disabled = false;
+            btn.textContent = original;
+            showResult(students, coaches, tools);
+          });
+      });
+    })();
   </script>
 </body>
 </html>
