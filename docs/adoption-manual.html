@@ -220,19 +220,29 @@
     .price-list li b { color: var(--ink-2); text-align: right; font-weight: 700; }
     .price-copy { margin: 22px 0 0; color: var(--ink-2); font-size: 14px; line-height: 1.7; }
     .scope-note { margin: 24px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-    /* ── 자비스의 하루: 실제 화면 갤러리 (2026-07) ── */
-    .jarvis-day {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px; margin-top: 6px;
+    /* ── 자비스의 하루: 지그재그(설명↔이미지 교차) 레이아웃 (2026-07) ── */
+    .jarvis-day { display: grid; gap: 40px; margin-top: 10px; }
+    .jarvis-row {
+      display: grid; grid-template-columns: 1.02fr .98fr;
+      gap: 52px; align-items: center;
     }
-    .shot {
-      margin: 0; border: 1px solid var(--line); border-radius: var(--r-lg);
-      overflow: hidden; background: var(--card); box-shadow: var(--sh-sm, 0 1px 3px rgba(0,0,0,.06));
-      display: flex; flex-direction: column;
+    .jarvis-row:nth-child(even) .jarvis-text { order: 2; }
+    .jarvis-text .tag {
+      display: block; margin-bottom: 12px; font-family: var(--f-mono);
+      color: var(--blue); font-size: 12px; letter-spacing: .1em; font-weight: 800;
     }
-    .shot img { display: block; width: 100%; height: auto; }
-    .shot figcaption { padding: 16px 18px; font-size: 13px; line-height: 1.6; color: var(--muted); }
-    .shot figcaption strong { display: block; color: var(--ink); font-size: 14.5px; margin-bottom: 6px; letter-spacing: -.01em; }
+    .jarvis-text h3 { margin: 0 0 12px; font-size: 26px; line-height: 1.2; letter-spacing: -.02em; }
+    .jarvis-text p { margin: 0; color: var(--ink-2); font-size: 16px; line-height: 1.75; }
+    .jarvis-img img {
+      display: block; width: 100%; max-width: 440px; height: auto; margin: 0 auto;
+      border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-pop);
+    }
+    @media (max-width: 780px) {
+      .jarvis-day { gap: 34px; }
+      .jarvis-row { grid-template-columns: 1fr; gap: 20px; }
+      .jarvis-row:nth-child(even) .jarvis-text { order: 0; }
+      .jarvis-img img { max-width: 380px; }
+    }
     @media (max-width: 640px) {
       .prep { flex-direction: column; }
       .price-head { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -271,22 +281,38 @@
       <h2>자비스의 하루 — 원장님은 판단만, 나머지는 먼저 챙깁니다</h2>
       <p>대부분의 학원 앱은 <strong>원장님이 여는 도구</strong>입니다. 열고, 찾고, 쓰고, 보내야 하죠. 자비스는 다릅니다 — <strong>먼저 알아채고 초안을 대령하는 AI 비서</strong>입니다. 실제 원장님·학부모 화면으로 보여드릴게요.</p>
       <div class="jarvis-day">
-        <figure class="shot">
-          <img src="img/app.png" alt="HoopNote 앱 아이콘 — APP 형태로 서비스 제공" loading="lazy">
-          <figcaption><strong>📱 앱으로 제공</strong>설치하고 바로 시작 — 코트 옆에서 폰 하나로 기록·소통·수납까지.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/briefing.png" alt="매일 아침 모닝 브리핑 알림톡" loading="lazy">
-          <figcaption><strong>☀️ 매일 아침 · 모닝 브리핑</strong>오늘 수업·미수·알림장 초안을 자비스가 먼저 정리해 원장님께 보냅니다.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/absence.png" alt="학부모 출석 안내 알림톡" loading="lazy">
-          <figcaption><strong>📋 수업 중 · 학부모 알림</strong>출석이 확인 안 되면 학부모에게 자동 안내 — 원장님 승인 후 발송됩니다.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/bus.png" alt="셔틀버스 출발 안내 알림톡" loading="lazy">
-          <figcaption><strong>🚌 하원 · 셔틀 출발 알림</strong>버스가 출발하면 학부모 폰으로 바로 — “우리 아이 잘 가고 있구나”.</figcaption>
-        </figure>
+        <div class="jarvis-row">
+          <div class="jarvis-text">
+            <span class="tag">📱 APP</span>
+            <h3>앱으로 제공</h3>
+            <p>설치하고 바로 시작 — 코트 옆에서 폰 하나로 기록·소통·수납까지. 원장님도 코치도 같은 앱 하나면 됩니다.</p>
+          </div>
+          <div class="jarvis-img"><img src="img/app.webp" alt="HoopNote 앱 아이콘 — APP 형태로 서비스 제공" loading="lazy"></div>
+        </div>
+        <div class="jarvis-row">
+          <div class="jarvis-text">
+            <span class="tag">☀️ 매일 아침</span>
+            <h3>모닝 브리핑</h3>
+            <p>오늘 수업·미수·알림장 초안을 자비스가 먼저 정리해 원장님께 보냅니다. 하루가 정리된 채로 시작됩니다.</p>
+          </div>
+          <div class="jarvis-img"><img src="img/briefing.webp" alt="매일 아침 모닝 브리핑 알림톡" loading="lazy"></div>
+        </div>
+        <div class="jarvis-row">
+          <div class="jarvis-text">
+            <span class="tag">📋 수업 중</span>
+            <h3>학부모 자동 알림</h3>
+            <p>출석이 확인 안 되면 학부모에게 자동으로 안내 — 원장님 승인 후 발송됩니다. 놓치는 결석이 없습니다.</p>
+          </div>
+          <div class="jarvis-img"><img src="img/absence.webp" alt="학부모 출석 안내 알림톡" loading="lazy"></div>
+        </div>
+        <div class="jarvis-row">
+          <div class="jarvis-text">
+            <span class="tag">🚌 하원</span>
+            <h3>셔틀 출발 알림</h3>
+            <p>버스가 출발하면 학부모 폰으로 바로 — “우리 아이 잘 가고 있구나”. 하원까지 자비스가 챙깁니다.</p>
+          </div>
+          <div class="jarvis-img"><img src="img/bus.webp" alt="셔틀버스 출발 안내 알림톡" loading="lazy"></div>
+        </div>
       </div>
       <div class="checklist" style="margin-top:24px">
         <div class="check"><b>✓</b><span>한 번의 기록 → 학생 성장 자산: 기억이 아니라 데이터로 상담합니다.</span></div>
