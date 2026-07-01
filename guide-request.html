@@ -148,8 +148,13 @@
 
       <div class="request-card">
         <h2>도입 안내서 받아보기</h2>
-        <p class="form-lead">필수 입력은 3개입니다. 제출 후 도입 안내 정보 페이지로 이어집니다.</p>
+        <p class="form-lead">필수 입력은 4개입니다. 제출 후 도입 안내 정보 페이지로 이어집니다.</p>
         <form class="guide-form" id="guideForm">
+          <div class="field">
+            <label for="academyName">학원명</label>
+            <input id="academyName" name="academyName" type="text" placeholder="예: ○○농구클럽" maxlength="60" required>
+          </div>
+
           <div class="field">
             <label for="studentCount">학생 수</label>
             <select id="studentCount" name="studentCount" required>
@@ -219,6 +224,7 @@
 
       form.addEventListener('submit', function (event) {
         event.preventDefault();
+        var academyName = document.getElementById('academyName').value.trim();
         var students = document.getElementById('studentCount').value;
         var coaches = document.getElementById('coachCount').value;
         var contact = document.getElementById('contact').value;
@@ -241,6 +247,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
+            academyName: academyName,
             studentCount: students,
             coachCount: coaches,
             tools: tools,
