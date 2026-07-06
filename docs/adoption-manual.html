@@ -7,7 +7,7 @@
   <meta name="description" content="hoopnote가 지금 할 수 있는 기능, 단일 요금제(₩549,000/월), 도입 절차와 결제선생 사업장 등록(필수)을 정리한 소개 자료입니다.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://www.hoopnote.kr/docs/adoption-manual.html">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
   <link rel="stylesheet" href="../styles.css">
   <style>
@@ -41,13 +41,14 @@
       display: inline-flex; align-items: center; min-height: 34px;
       padding: 7px 12px; border-radius: var(--r-pill);
       background: var(--blue-wash); border: 1px solid var(--line);
-      color: var(--blue-2); font-size: 13px; font-weight: 800;
+      color: var(--orange-soft); font-size: 13px; font-weight: 800;
     }
     .manual-card {
       position: relative; overflow: hidden;
       border-radius: var(--r-xl);
       padding: 28px;
-      background: linear-gradient(145deg, var(--blue-3), var(--blue-2) 60%, var(--blue));
+      background: linear-gradient(145deg, var(--panel-hi), var(--panel-mid) 60%, var(--panel-deep));
+      border: 1px solid var(--line);
       color: #fff; box-shadow: var(--sh-pop);
     }
     .manual-card::before {
@@ -115,7 +116,7 @@
     }
     .check b {
       flex: none; width: 22px; height: 22px; border-radius: 6px;
-      display: grid; place-items: center; background: #fff;
+      display: grid; place-items: center; background: var(--card);
       color: var(--blue); border: 1px solid var(--line); font-size: 12px;
     }
     .check span { color: var(--ink-2); font-size: 14px; line-height: 1.5; }
@@ -125,7 +126,7 @@
     }
     .flow-step {
       border: 1px solid var(--line); border-radius: var(--r-md);
-      padding: 20px; background: #fff; min-height: 190px;
+      padding: 20px; background: var(--card); min-height: 190px;
     }
     .flow-step strong {
       display: block; color: var(--orange-2);
@@ -145,7 +146,7 @@
     .message-card h3 { margin: 0 0 12px; font-size: 20px; letter-spacing: -.015em; }
     .message-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
     .template {
-      background: var(--ink); color: #fff; border-radius: var(--r-lg);
+      background: var(--panel-deep); border: 1px solid var(--line); color: #fff; border-radius: var(--r-lg);
       padding: 24px; font-size: 14px; line-height: 1.75;
       white-space: pre-line;
     }
@@ -153,7 +154,8 @@
     .manual-cta {
       margin: 24px 0 80px; padding: 34px;
       border-radius: var(--r-xl);
-      background: linear-gradient(135deg, var(--blue-3), var(--blue));
+      background: linear-gradient(135deg, var(--panel-deep), var(--panel-hi));
+      border: 1px solid var(--line);
       color: #fff; display: flex; align-items: center; justify-content: space-between;
       gap: 20px; overflow: hidden; position: relative;
     }
@@ -165,7 +167,7 @@
     }
     .manual-cta h2 { position: relative; z-index: 1; margin: 0; font-size: 30px; line-height: 1.15; }
     .manual-cta p { position: relative; z-index: 1; margin: 8px 0 0; color: #D7E4F6; font-size: 14px; }
-    .manual-cta .btn { position: relative; z-index: 1; flex: none; --btn-base: var(--orange); color: var(--ink); }
+    .manual-cta .btn { position: relative; z-index: 1; flex: none; --btn-base: var(--orange); color: #001621; }
     @media (max-width: 900px) {
       .manual-hero { grid-template-columns: 1fr; padding-top: 52px; }
       .manual-hero h1 { font-size: 42px; }
@@ -192,11 +194,11 @@
     .coming ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.75; }
     .prep {
       display: flex; gap: 18px; align-items: flex-start;
-      padding: 24px; border: 2px solid var(--orange); border-radius: var(--r-lg); background: #fff;
+      padding: 24px; border: 2px solid var(--orange); border-radius: var(--r-lg); background: var(--card);
     }
     .prep-badge {
       flex: none; padding: 6px 12px; border-radius: var(--r-pill);
-      background: var(--orange); color: #fff; font-size: 12px; font-weight: 800;
+      background: var(--orange); color: #001621; font-size: 12px; font-weight: 800;
       font-family: var(--f-mono); letter-spacing: .04em;
     }
     .prep-body h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -.015em; }
