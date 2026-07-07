@@ -216,6 +216,13 @@
     .price-plan { font-size: 15px; font-weight: 800; color: var(--blue); font-family: var(--f-mono); letter-spacing: .04em; }
     .price-amount { font-size: 40px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
     .price-amount span { font-size: 16px; font-weight: 700; color: var(--muted); }
+    .price-was { display: block; text-align: right; color: var(--muted); font-size: 15px; text-decoration: line-through; text-decoration-color: var(--orange); margin-bottom: 2px; }
+    .promo-flag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: var(--r-pill); margin-bottom: 14px;
+      background: var(--orange); color: #001621;
+      font-size: 13px; font-weight: 800; letter-spacing: -.01em;
+    }
     .price-list { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; }
     .price-list li { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; line-height: 1.5; }
     .price-list li span { color: var(--muted); flex: none; }
@@ -252,6 +259,106 @@
       .jarvis-row:nth-child(even) .jarvis-text { order: 0; }
       .jarvis-img img { max-width: 380px; }
     }
+    /* ── 퍼널 P1: 후킹·베타 정직·ROI 계산기·FAQ·sticky CTA (2026-07) ── */
+    .hook-story {
+      margin: 8px 0 0; padding: 26px 28px;
+      border-left: 3px solid var(--orange); border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      background: var(--panel-deep);
+    }
+    .hook-story p { margin: 0 0 10px; color: var(--ink-2); font-size: 16.5px; line-height: 1.8; }
+    .hook-story p:last-child { margin: 0; }
+    .hook-story .hs-title { color: var(--ink); font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; }
+    .hook-story em { font-style: normal; color: var(--orange-soft); font-weight: 700; }
+    .hook-story .hs-sign {
+      margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--line);
+      color: var(--orange-soft); font-size: 15px; font-weight: 700; line-height: 1.7;
+    }
+    .case-card {
+      margin: 0; padding: 34px 32px;
+      border: 1px solid rgba(255,65,3,.45); border-radius: var(--r-xl);
+      background: linear-gradient(135deg, var(--orange-wash), var(--panel-deep) 70%);
+      position: relative; overflow: hidden;
+    }
+    .case-card::after {
+      content: ""; position: absolute; right: -70px; top: -80px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: var(--basketball-seams), var(--orange);
+      background-size: 100% 100%, auto; opacity: .16; transform: rotate(-10deg);
+    }
+    .case-card > * { position: relative; z-index: 1; }
+    .case-badge {
+      display: inline-block; padding: 6px 14px; border-radius: var(--r-pill);
+      background: var(--orange); color: #001621;
+      font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .case-card blockquote {
+      margin: 0 0 14px; font-size: 26px; line-height: 1.4; letter-spacing: -.02em;
+      color: var(--ink); font-weight: 800; max-width: 640px;
+    }
+    .case-card blockquote em { font-style: normal; color: var(--orange-soft); }
+    .case-card .case-src { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .beta-note {
+      padding: 28px; border: 1px solid var(--line); border-radius: var(--r-lg);
+      background: var(--card);
+    }
+    .beta-note .bn-badge {
+      display: inline-block; padding: 5px 12px; border-radius: var(--r-pill);
+      background: var(--orange-wash); color: var(--orange-soft); border: 1px solid rgba(255,65,3,.3);
+      font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; font-weight: 800; margin-bottom: 14px;
+    }
+    .beta-note h3 { margin: 0 0 10px; font-size: 24px; letter-spacing: -.02em; }
+    .beta-note p { margin: 0 0 8px; color: var(--ink-2); font-size: 15px; line-height: 1.7; }
+    .beta-note ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .roi-calc {
+      margin-top: 22px; padding: 26px; border: 1px solid var(--line);
+      border-radius: var(--r-lg); background: var(--blue-wash); max-width: 640px;
+    }
+    .roi-calc h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -.015em; }
+    .roi-calc .rc-sub { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+    .rc-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; margin-bottom: 12px; }
+    .rc-row label { color: var(--ink-2); font-size: 14px; font-weight: 700; }
+    .rc-row input {
+      width: 130px; height: 42px; border: 1px solid var(--line); border-radius: var(--r-sm);
+      background: var(--paper); color: var(--ink); font: inherit; padding: 0 12px; text-align: right;
+    }
+    .rc-out { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+    .rc-out p { margin: 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.6; }
+    .rc-out b { color: var(--orange-soft); }
+    .faq-list { border-top: 1px solid var(--line); max-width: 760px; }
+    .faq-list details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+    .faq-list summary {
+      cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px;
+      font-size: 16.5px; font-weight: 700; color: var(--ink); letter-spacing: -.01em;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; color: var(--orange); font-family: var(--f-mono); font-size: 20px; flex: none; }
+    .faq-list details[open] summary::after { content: "–"; }
+    .faq-list details p { margin: 12px 0 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.7; }
+    .cta-duo { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .cta-duo .btn-line { border-color: rgba(255,255,255,.5); color: #fff; }
+    .cta-duo .btn-line:hover { background: rgba(255,255,255,.12); color: #fff; }
+    .sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+      background: rgba(0,22,33,.96); backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      padding: 10px 20px; display: none;
+      align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
+    }
+    .sticky-cta.show { display: flex; }
+    .sticky-cta .sc-txt { color: var(--ink-2); font-size: 13.5px; font-weight: 700; }
+    .sticky-cta .sc-txt b { color: var(--ink); }
+    .sticky-cta .btn { padding: 8px 16px; font-size: 14px; }
+    .sticky-cta .sc-close {
+      background: none; border: 0; color: var(--muted); font-size: 18px; cursor: pointer; padding: 4px 8px;
+    }
+    @media (max-width: 640px) {
+      .rc-row { grid-template-columns: 1fr; }
+      .rc-row input { width: 100%; text-align: left; }
+      .case-card { padding: 26px 22px; }
+      .case-card blockquote { font-size: 21px; }
+      .sticky-cta .sc-txt { display: none; }
+    }
     @media (max-width: 640px) {
       .prep { flex-direction: column; }
       .price-head { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -268,9 +375,10 @@
     <header class="manual-hero">
       <div>
         <div class="eyebrow">ADOPTION GUIDE · AI 비서가 학원 운영을 먼저 챙깁니다</div>
-        <h1>버튼은 찾지 마세요.<br><em>AI 비서 자비스</em>가<br>먼저 준비합니다.</h1>
-        <p>자비스는 수업·출결·수납 타이밍을 먼저 알아채 초안을 준비하고, 원장님은 “응” 한 마디로 승인합니다. 그 한 번의 기록이 학부모 알림장·성장 리포트·재등록 자료로 남습니다. 이 페이지는 도입을 고민하시는 원장님께 <strong>실제 화면</strong>과 요금, 시작 절차를 정리한 소개 자료입니다.</p>
+        <h1>코트는 원장님이,<br>행정은 <em>자비스</em>가.</h1>
+        <p>수업·출결·수납 — 자비스가 먼저 알아채 초안까지 준비합니다. 원장님은 <strong>“응” 한 마디</strong>. 그 기록이 재등록의 근거로 쌓입니다.</p>
         <div class="hero-note">
+          <span style="background:var(--orange);color:#001621;border-color:transparent">🔥 도입 프로모션 — 10개 학원 한정 ₩349,000/월</span>
           <span>코트 옆 한 손 탭 기록</span>
           <span>원장 승인 후에만 발송</span>
           <span>결제선생 링크 안내 · 금전정보 미보관</span>
@@ -285,6 +393,15 @@
         </ol>
       </aside>
     </header>
+
+    <section class="manual-section" style="padding-top:20px;border-top:none">
+      <div class="hook-story">
+        <div class="hs-title">4쿼터를 풀로 뛰어도 멀쩡하던 당신이,<br>알림장 12개에 지칩니다.</div>
+        <p>아이들을 <em>코트에서</em> 키우고 싶어 학원을 차렸는데 — 밤마다 붙잡고 있는 건 공이 아니라 폰과 엑셀입니다. 알림장, 출결, 수납.</p>
+        <p>행정은 자비스에게 주세요. 기록은 코트 옆 3초. <em>당신은 코치로 남으면 됩니다.</em></p>
+        <p class="hs-sign">저도 농구인이라 압니다.<br>— 농구인이 만들고, 농구인이 쓰는 hoopnote.</p>
+      </div>
+    </section>
 
     <section class="manual-section">
       <h2>자비스의 하루 — 원장님은 판단만, 나머지는 먼저 챙깁니다</h2>
@@ -332,6 +449,12 @@
       </div>
     </section>
 
+    <div class="case-card">
+      <span class="case-badge">REAL CASE · 실제 운영 중</span>
+      <blockquote>"코트에서 남긴 메모 한 줄이,<br><em>학부모에게 보낼 글이 되어 돌아왔다.</em>"</blockquote>
+      <p class="case-src">용인의 한 유소년 농구클럽 — 기록·AI 알림장·출결·학원비 안내까지 hoopnote로 운영 중.<br>위에서 보신 화면들이 이 클럽의 실제 모습입니다.</p>
+    </div>
+
     <section class="manual-section">
       <h2>지금 바로 쓸 수 있는 기능</h2>
       <p>자비스가 챙기는 일들은 아래 기능 위에서 돌아갑니다. 준비 중인 기능은 따로 솔직하게 구분해 두었습니다.</p>
@@ -367,6 +490,20 @@
         <ul>
           <li>미수금 자동 독촉 — 현재는 원장님 승인을 거친 안내 보조만 제공</li>
           <li>AI 인사이트 대시보드 — 화면 노출 준비 중. 지금은 AI 비서에게 말로 요청하실 수 있습니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="manual-section">
+      <h2>지금은 베타입니다 — 그래서 좋습니다</h2>
+      <p>부풀린 후기는 없습니다. 대신 초기 도입 학원에는 이게 있습니다.</p>
+      <div class="beta-note">
+        <span class="bn-badge">BETA · 정직 표기</span>
+        <ul style="margin-top:4px">
+          <li><strong style="color:var(--orange-soft)">도입 프로모션</strong> — 베타 기간 <strong>10개 학원 한정</strong>, 첫 3개월 <strong>₩349,000/월</strong> (정가 549,000원).</li>
+          <li><strong>기능 요청 우선 반영</strong> — 원장님의 불편이 로드맵 맨 위로.</li>
+          <li><strong>1:1 온보딩</strong> — 명단 이전부터 첫 발송까지 직접.</li>
+          <li><strong>같은 요금, 더 많은 관심</strong> — 학원이 적을수록 한 곳에 쓰는 시간이 많습니다.</li>
         </ul>
       </div>
     </section>
@@ -419,19 +556,33 @@
       <h2>요금제는 하나입니다</h2>
       <p>규모에 따라 플랜을 고르거나 코치 수만큼 추가 비용이 붙지 않습니다. 코치도, 클래스도 무제한인 단일 요금제입니다.</p>
       <div class="price-card">
+        <span class="promo-flag">🔥 도입 프로모션 — 10개 학원 한정</span>
         <div class="price-head">
           <span class="price-plan">Hoop Plan</span>
-          <span class="price-amount">₩549,000<span>/월</span></span>
+          <span>
+            <span class="price-was">정가 ₩549,000/월</span>
+            <span class="price-amount">₩349,000<span>/월 · 첫 3개월</span></span>
+          </span>
         </div>
         <ul class="price-list">
+          <li><span>프로모션 조건</span><b>도입 기간 한정 10개 학원 · 첫 3개월 ₩349,000/월 · 이후 정가 ₩549,000 전환(종료 전 사전 안내)</b></li>
           <li><span>연 결제 혜택 (상담 시 적용)</span><b>1년 결제 시 2개월 무료 · 10개월 금액으로 1년 이용</b></li>
           <li><span>코치</span><b>무제한</b></li>
           <li><span>클래스</span><b>무제한</b></li>
           <li><span>경기 기록</span><b>무제한 + AI 코멘트 포함</b></li>
-          <li><span>카카오 알림톡</span><b>발송량 정책은 도입 상담 시 안내</b></li>
+          <li><span>카카오 알림톡</span><b>월 3,000건 포함</b></li>
           <li><span>약정</span><b>없음 · 언제든 해지</b></li>
         </ul>
         <p class="price-copy">가격보다 운영 구조를 먼저 보셨으면 합니다. 코치를 더 채용해도, 클래스를 늘려도 요금은 그대로입니다. 1년 결제를 선택하시면 두 달치를 무료로 적용해 드립니다.</p>
+      </div>
+      <div class="roi-calc">
+        <h3>우리 학원의 저녁은 얼마나 묶여 있을까요</h3>
+        <p class="rc-sub">값을 바꾸면 바로 계산됩니다. 과장 없이 산수만.</p>
+        <div class="rc-row">
+          <label for="rcStudents">재학생 수</label>
+          <input id="rcStudents" type="number" value="60" min="1" max="2000" inputmode="numeric">
+        </div>
+        <div class="rc-out" id="rcOut" aria-live="polite"></div>
       </div>
     </section>
 
@@ -457,13 +608,87 @@
       <p class="scope-note">단일 요금제이므로 학생 수·코치 수가 많을수록 한 명당 체감 비용이 낮아집니다. 먼저 도입 상담을 통해 학원에 맞는 활용 방식을 확인해 보시길 권합니다.</p>
     </section>
 
+    <section class="manual-section">
+      <h2>망설여지는 지점, 정면으로 답합니다</h2>
+      <div class="faq-list">
+        <details>
+          <summary>프로모션 조건이 정확히 어떻게 되나요?</summary>
+          <p>도입 기간 한정 <strong>10개 학원</strong>, 첫 3개월 <strong>월 349,000원</strong>(정가 549,000원)입니다. 3개월 종료 전에 그동안 자비스가 처리한 업무를 정리한 리포트와 함께 정가 전환을 안내드립니다. 약정이 없으니 전환 전 언제든 해지 가능합니다.</p>
+        </details>
+        <details>
+          <summary>월 요금의 값을 하나요?</summary>
+          <p>hoopnote가 맡는 건 도구가 아니라 <strong>매일 저녁의 행정과 재등록의 근거</strong>입니다. 코치·클래스 무제한 단일 요금, 약정 없음 — 프로모션 3개월 동안 저녁이 달라지는지 직접 판단하세요.</p>
+        </details>
+        <details>
+          <summary>AI가 학부모에게 잘못 보내면 어떡하죠?</summary>
+          <p>보내지 못합니다. 모든 학부모 발송은 원장님이 "응" 승인해야만 나가고, 이건 설정이 아니라 코드로 강제되어 있습니다. AI의 역할은 초안까지입니다.</p>
+        </details>
+        <details>
+          <summary>설치나 교육이 복잡하지 않나요?</summary>
+          <p>앱스토어 설치가 필요 없습니다(홈 화면에 추가하면 앱처럼 열립니다). 명단은 엑셀 붙여넣기 한 번, 기록은 코트 옆에서 탭. 베타 기간에는 온보딩을 1:1로 직접 챙겨드립니다.</p>
+        </details>
+        <details>
+          <summary>쓰다가 우리 학원과 안 맞으면요?</summary>
+          <p>약정이 없어 언제든 해지할 수 있습니다. 학원비·금전 정보는 애초에 hoopnote가 보관하지 않으니 정산 꼬임도 없습니다.</p>
+        </details>
+      </div>
+    </section>
+
     <section class="manual-cta">
       <div>
         <h2>좋은 수업이<br>신뢰의 증거로 남게 하세요.</h2>
-        <p>도입을 고민 중이시라면, 학원 환경에 맞춰 안내해 드립니다. 약정은 없습니다.</p>
+        <p>약정 없이 이달부터 시작하거나, 상담을 먼저 받아보세요.</p>
       </div>
-      <a class="btn btn-pri btn-lg" href="../guide-request.html">도입 문의하기</a>
+      <div class="cta-duo">
+        <a class="btn btn-pri btn-lg" href="https://academy.hoopnote.kr/subscribe?utm_source=hoopnote_kr&utm_medium=adoption_manual&utm_campaign=funnel_p1">지금 시작하기 →</a>
+        <a class="btn btn-line btn-lg" href="../guide-request.html">상담 후 결정하기</a>
+      </div>
     </section>
+
+    <div class="sticky-cta" id="stickyCta" role="complementary" aria-label="도입 안내 바">
+      <span class="sc-txt">🔥 도입 프로모션 <b>₩349,000/월</b> <s style="color:var(--muted)">₩549,000</s> · 10개 학원 한정</span>
+      <a class="btn btn-pri" href="https://academy.hoopnote.kr/subscribe?utm_source=hoopnote_kr&utm_medium=adoption_manual&utm_campaign=sticky">지금 시작하기</a>
+      <a class="btn btn-line" href="../guide-request.html" style="border-color:var(--line);color:var(--ink-2)">상담하기</a>
+      <button class="sc-close" id="scClose" aria-label="닫기">×</button>
+    </div>
+
+    <script>
+      (function () {
+        // 저녁 시간 계산기 — 시간 + 최저시급 알바 환산 (2026년 최저시급 10,320원, 고용노동부 고시)
+        var MIN_WAGE = 10320;
+        var st = document.getElementById('rcStudents');
+        var out = document.getElementById('rcOut');
+        function calc() {
+          var s = Math.max(1, parseInt(st.value, 10) || 0);
+          // 행정시간: 학생 1명당 월 20분 가정 (알림장 주1회×4분 + 출결·수납 정리)
+          var adminH = s * 20 / 60;                     // 월 행정시간
+          var perEveningMin = Math.round(adminH * 60 / 22); // 평일(월 22일) 저녁마다
+          var albaWon = Math.round(adminH * MIN_WAGE / 1000) * 1000; // 최저시급 환산(천원 반올림)
+          out.innerHTML =
+            '<p>학생 ' + s + '명의 알림장·출결·수납 행정은 <b>월 약 ' + adminH.toFixed(0) + '시간</b> — 수업이 끝난 뒤 <b>평일 저녁마다 약 ' + perEveningMin + '분</b>이 문서에 묶입니다.</p>' +
+            '<p>이 일을 알바에게 맡기면 최저시급으로만 계산해도 <b>월 약 ' + albaWon.toLocaleString('ko-KR') + '원</b>. 그런데 이 저녁을 쓰고 있는 건 알바가 아니라 <b>원장님</b>입니다 — 원장님의 시간은 최저시급이 아니죠.</p>' +
+            '<p>그리고 알바는 못 하는 일이 있습니다 — <b>학부모 알림장 초안, 성장 리포트, 매월 수납 안내, 매일 아침 운영 브리핑</b>. 자비스는 시간을 돌려주는 걸 넘어 <b>이 일까지</b> 합니다.</p>' +
+            '<p><b>hoopnote가 돌려드리는 건 이 저녁</b>, 그리고 재등록의 근거입니다.</p>' +
+            '<p style="color:var(--muted);font-size:12.5px">가정: 학생 1명당 월 20분(알림장 주 1회 4분 + 출결·수납 정리) · 2026년 최저시급 10,320원(고용노동부 고시). 단순 산수이며 효과를 보장하는 수치가 아닙니다.</p>';
+        }
+        if (st && out) { st.addEventListener('input', calc); calc(); }
+
+        // sticky CTA — 스크롤 25% 이후 노출, 닫으면 세션 내 유지
+        var bar = document.getElementById('stickyCta');
+        var closed = false;
+        try { closed = sessionStorage.getItem('scClosed') === '1'; } catch (e) {}
+        document.getElementById('scClose').addEventListener('click', function () {
+          bar.classList.remove('show'); closed = true;
+          try { sessionStorage.setItem('scClosed', '1'); } catch (e) {}
+        });
+        window.addEventListener('scroll', function () {
+          if (closed) return;
+          var h = document.documentElement;
+          var ratio = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight);
+          bar.classList.toggle('show', ratio > 0.25);
+        }, { passive: true });
+      })();
+    </script>
   </main>
 </body>
 </html>
