@@ -262,12 +262,31 @@
     .hook-story p:last-child { margin: 0; }
     .hook-story .hs-title { color: var(--ink); font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; }
     .hook-story em { font-style: normal; color: var(--orange-soft); font-weight: 700; }
-    .mid-cta {
-      margin: 0; padding: 18px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-      border: 1px solid var(--line); border-radius: var(--r-md); background: var(--blue-wash);
+    .case-card {
+      margin: 0; padding: 34px 32px;
+      border: 1px solid rgba(255,65,3,.45); border-radius: var(--r-xl);
+      background: linear-gradient(135deg, var(--orange-wash), var(--panel-deep) 70%);
+      position: relative; overflow: hidden;
     }
-    .mid-cta span { color: var(--ink-2); font-size: 15px; font-weight: 700; }
+    .case-card::after {
+      content: ""; position: absolute; right: -70px; top: -80px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: var(--basketball-seams), var(--orange);
+      background-size: 100% 100%, auto; opacity: .16; transform: rotate(-10deg);
+    }
+    .case-card > * { position: relative; z-index: 1; }
+    .case-badge {
+      display: inline-block; padding: 6px 14px; border-radius: var(--r-pill);
+      background: var(--orange); color: #001621;
+      font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .case-card blockquote {
+      margin: 0 0 14px; font-size: 26px; line-height: 1.4; letter-spacing: -.02em;
+      color: var(--ink); font-weight: 800; max-width: 640px;
+    }
+    .case-card blockquote em { font-style: normal; color: var(--orange-soft); }
+    .case-card .case-src { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
     .beta-note {
       padding: 28px; border: 1px solid var(--line); border-radius: var(--r-lg);
       background: var(--card);
@@ -325,7 +344,8 @@
     @media (max-width: 640px) {
       .rc-row { grid-template-columns: 1fr; }
       .rc-row input { width: 100%; text-align: left; }
-      .mid-cta { flex-direction: column; align-items: stretch; text-align: center; }
+      .case-card { padding: 26px 22px; }
+      .case-card blockquote { font-size: 21px; }
       .sticky-cta .sc-txt { display: none; }
     }
     @media (max-width: 640px) {
@@ -365,9 +385,8 @@
     <section class="manual-section" style="padding-top:20px;border-top:none">
       <div class="hook-story">
         <div class="hs-title">밤 11시, 오늘도 알림장 12개가 남았습니다.</div>
-        <p>수업은 저녁 9시에 끝났습니다. 그런데 진짜 일은 지금부터입니다 — 학부모 단톡 답장, 알림장, 이번 달 수납 확인. 낮에 봤던 아이들의 좋은 플레이는 벌써 기억이 흐릿합니다.</p>
-        <p>그리고 재등록 시즌이 오면, 쌓아둔 근거 없이 <em>말로 처음부터 다시 설득</em>해야 합니다. 내일도, 다음 달도 똑같이.</p>
-        <p>hoopnote는 이 밤을 없애려고 만들었습니다. <em>기록은 코트 옆에서 3초</em>, 나머지는 자비스가 먼저 준비합니다.</p>
+        <p>수업은 9시에 끝났지만 진짜 일은 지금부터 — 알림장, 단톡 답장, 수납 확인. 재등록 시즌이 오면 근거 없이 <em>말로 처음부터 다시 설득</em>.</p>
+        <p>hoopnote는 이 밤을 없애려고 만들었습니다. <em>기록은 코트 옆에서 3초</em>, 나머지는 자비스가 먼저.</p>
       </div>
     </section>
 
@@ -417,9 +436,10 @@
       </div>
     </section>
 
-    <div class="mid-cta">
-      <span>위 화면들은 연출이 아니라 실제 작동 화면입니다. 원장님 폰에서 그대로 돌아갑니다.</span>
-      <a class="btn btn-line" href="../guide-request.html">상담 후 결정하기 →</a>
+    <div class="case-card">
+      <span class="case-badge">REAL CASE · 실제 운영 중</span>
+      <blockquote>"코트에서 남긴 메모 한 줄이,<br><em>학부모에게 보낼 글이 되어 돌아왔다.</em>"</blockquote>
+      <p class="case-src">용인의 한 유소년 농구클럽 — 기록·AI 알림장·출결·학원비 안내까지 hoopnote로 운영 중.<br>위에서 보신 화면들이 이 클럽의 실제 모습입니다.</p>
     </div>
 
     <section class="manual-section">
@@ -463,21 +483,13 @@
 
     <section class="manual-section">
       <h2>지금은 베타입니다 — 그래서 좋습니다</h2>
-      <p>부풀린 후기 대신 정직하게 말씀드립니다. hoopnote는 지금 소수의 농구학원과 실전에서 함께 다듬는 중입니다.</p>
-      <div class="beta-note" style="margin-bottom:16px">
-        <span class="bn-badge">실제 운영 사례</span>
-        <h3>용인의 한 유소년 농구클럽</h3>
-        <p>이 클럽은 지금 수업 기록부터 <strong>AI 알림장</strong>, 출결, <strong>결제선생 학원비 안내</strong>까지 hoopnote 위에서 운영하고 있습니다. 학부모 알림톡은 매주 실제로 나가고, 매월 학원비 안내도 자비스가 준비해 원장 승인으로 발송됩니다.</p>
-        <p>코치진의 반응이 가장 컸던 순간은 알림장이었습니다 — <em style="font-style:normal;color:var(--orange-soft)">코트에서 남긴 메모 한 줄이 학부모에게 보낼 수 있는 글이 되어 돌아왔을 때.</em> 위에서 보신 화면들이 바로 이 운영의 실제 모습입니다.</p>
-      </div>
+      <p>부풀린 후기는 없습니다. 대신 초기 도입 학원에는 이게 있습니다.</p>
       <div class="beta-note">
         <span class="bn-badge">BETA · 정직 표기</span>
-        <h3>초기 도입 학원이 얻는 것</h3>
-        <p>이 페이지의 화면은 전부 실제 작동 화면입니다. 그리고 베타 시기의 도입에는 분명한 이점이 있습니다:</p>
-        <ul>
-          <li><strong>기능 요청 우선 반영</strong> — 원장님 현장의 불편이 로드맵 최상단에 올라갑니다.</li>
-          <li><strong>1:1 온보딩</strong> — 명단 이전부터 첫 발송까지 직접 챙겨드립니다.</li>
-          <li><strong>같은 요금, 더 많은 관심</strong> — 학원 수가 적을수록 한 학원에 쓰는 시간이 많습니다.</li>
+        <ul style="margin-top:4px">
+          <li><strong>기능 요청 우선 반영</strong> — 원장님의 불편이 로드맵 맨 위로.</li>
+          <li><strong>1:1 온보딩</strong> — 명단 이전부터 첫 발송까지 직접.</li>
+          <li><strong>같은 요금, 더 많은 관심</strong> — 학원이 적을수록 한 곳에 쓰는 시간이 많습니다.</li>
         </ul>
       </div>
     </section>
@@ -545,8 +557,8 @@
         <p class="price-copy">가격보다 운영 구조를 먼저 보셨으면 합니다. 코치를 더 채용해도, 클래스를 늘려도 요금은 그대로입니다. 1년 결제를 선택하시면 두 달치를 무료로 적용해 드립니다.</p>
       </div>
       <div class="roi-calc">
-        <h3>우리 학원 기준으로 계산해 보세요</h3>
-        <p class="rc-sub">과장 없이 산수만 보여드립니다. 값을 바꾸면 바로 계산됩니다.</p>
+        <h3>우리 학원의 저녁은 얼마나 묶여 있을까요</h3>
+        <p class="rc-sub">값을 바꾸면 바로 계산됩니다. 과장 없이 산수만.</p>
         <div class="rc-row">
           <label for="rcStudents">재학생 수</label>
           <input id="rcStudents" type="number" value="60" min="1" max="2000" inputmode="numeric">
@@ -585,8 +597,8 @@
       <h2>망설여지는 지점, 정면으로 답합니다</h2>
       <div class="faq-list">
         <details>
-          <summary>월 549,000원, 부담되지 않을까요?</summary>
-          <p>학생 3~4명의 월 수강료 수준입니다. 코치·클래스 무제한 단일 요금이라 규모가 클수록 1인당 비용은 내려갑니다. 약정이 없으니 한 달 써보고 판단하셔도 됩니다. 위 계산기에 우리 학원 숫자를 넣어 보세요.</p>
+          <summary>월 549,000원의 값을 하나요?</summary>
+          <p>hoopnote가 맡는 건 도구가 아니라 <strong>매일 저녁의 행정과 재등록의 근거</strong>입니다. 코치·클래스 무제한 단일 요금, 약정 없음 — 한 달 써보고 저녁이 달라지는지 직접 판단하세요.</p>
         </details>
         <details>
           <summary>AI가 학부모에게 잘못 보내면 어떡하죠?</summary>
@@ -632,19 +644,15 @@
         function calc() {
           var s = Math.max(1, parseInt(st.value, 10) || 0);
           var f = Math.max(10000, parseInt(fee.value, 10) || 0);
-          var perStudent = PLAN / s;                    // 학생 1인당 월 비용
-          var feeEquiv = PLAN / f;                      // 월 요금 = 수강료 몇 명분
-          var retainYear = (PLAN * 12) / (f * 12);      // 연 재등록 몇 명이면 상쇄
-          // 행정시간: 학생 1명당 월 20분 가정 (알림장 주1회×4분 + 출결·수납 정리 4분)
+          // 행정시간: 학생 1명당 월 20분 가정 (알림장 주1회×4분 + 출결·수납 정리)
           var adminH = s * 20 / 60;                     // 월 행정시간
           var perEveningMin = Math.round(adminH * 60 / 22); // 평일(월 22일) 저녁마다
+          var studentYear = f * 12;                     // 학생 1명의 연간 가치
           out.innerHTML =
-            '<p>월 요금을 학생 수로 나누면 <b>1인당 ' + won(Math.round(perStudent)) + '</b>입니다.</p>' +
-            '<p>월 요금은 <b>수강료 약 ' + feeEquiv.toFixed(1) + '명분</b> — 1년 기준, <b>재등록 ' + Math.ceil(retainYear) + '명</b>만 더 지켜도 요금 이상을 회수합니다.</p>' +
-            '<p style="margin-top:6px;padding-top:12px;border-top:1px dashed var(--line)">그리고 돈보다 큰 것 — <b>시간</b>입니다. 학생 ' + s + '명의 알림장·출결·수납 행정은 <b>월 약 ' +
-            adminH.toFixed(0) + '시간</b>. 수업이 끝난 뒤, <b>평일 저녁마다 약 ' + perEveningMin + '분씩</b> 문서작업을 하고 있다는 뜻입니다.</p>' +
-            '<p>자비스가 초안·자동 누적으로 이 저녁을 돌려드립니다. 원장님은 승인만.</p>' +
-            '<p style="color:var(--muted);font-size:12.5px">가정: 학생 1명당 월 20분(알림장 주 1회 4분 + 출결·수납 정리). 단순 산수이며 재등록·절감 효과를 보장하는 수치가 아닙니다.</p>';
+            '<p>학생 ' + s + '명의 알림장·출결·수납 행정은 <b>월 약 ' + adminH.toFixed(0) + '시간</b> — 수업이 끝난 뒤 <b>평일 저녁마다 약 ' + perEveningMin + '분</b>이 문서에 묶입니다.</p>' +
+            '<p>그리고 그 기록이 지켜내는 것: 학생 한 명의 재등록은 <b>연 ' + won(studentYear) + '</b>의 가치입니다. 기억이 아니라 기록이 지킵니다.</p>' +
+            '<p><b>hoopnote가 돌려드리는 건 이 두 가지</b> — 원장님의 저녁, 그리고 재등록의 근거.</p>' +
+            '<p style="color:var(--muted);font-size:12.5px">가정: 학생 1명당 월 20분(알림장 주 1회 4분 + 출결·수납 정리). 단순 산수이며 효과를 보장하는 수치가 아닙니다.</p>';
         }
         if (st && fee && out) { st.addEventListener('input', calc); fee.addEventListener('input', calc); calc(); }
 
