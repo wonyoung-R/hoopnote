@@ -629,10 +629,16 @@
           var perStudent = PLAN / s;                    // 학생 1인당 월 비용
           var feeEquiv = PLAN / f;                      // 월 요금 = 수강료 몇 명분
           var retainYear = (PLAN * 12) / (f * 12);      // 연 재등록 몇 명이면 상쇄
+          // 행정시간: 학생 1명당 월 20분 가정 (알림장 주1회×4분 + 출결·수납 정리 4분)
+          var adminH = s * 20 / 60;                     // 월 행정시간
+          var perEveningMin = Math.round(adminH * 60 / 22); // 평일(월 22일) 저녁마다
           out.innerHTML =
             '<p>월 요금을 학생 수로 나누면 <b>1인당 ' + won(Math.round(perStudent)) + '</b>입니다.</p>' +
             '<p>월 요금은 <b>수강료 약 ' + feeEquiv.toFixed(1) + '명분</b> — 1년 기준, <b>재등록 ' + Math.ceil(retainYear) + '명</b>만 더 지켜도 요금 이상을 회수합니다.</p>' +
-            '<p style="color:var(--muted);font-size:12.5px">단순 산수입니다. 재등록 효과를 보장하는 수치가 아닙니다.</p>';
+            '<p style="margin-top:6px;padding-top:12px;border-top:1px dashed var(--line)">그리고 돈보다 큰 것 — <b>시간</b>입니다. 학생 ' + s + '명의 알림장·출결·수납 행정은 <b>월 약 ' +
+            adminH.toFixed(0) + '시간</b>. 수업이 끝난 뒤, <b>평일 저녁마다 약 ' + perEveningMin + '분씩</b> 문서작업을 하고 있다는 뜻입니다.</p>' +
+            '<p>자비스가 초안·자동 누적으로 이 저녁을 돌려드립니다. 원장님은 승인만.</p>' +
+            '<p style="color:var(--muted);font-size:12.5px">가정: 학생 1명당 월 20분(알림장 주 1회 4분 + 출결·수납 정리). 단순 산수이며 재등록·절감 효과를 보장하는 수치가 아닙니다.</p>';
         }
         if (st && fee && out) { st.addEventListener('input', calc); fee.addEventListener('input', calc); calc(); }
 
