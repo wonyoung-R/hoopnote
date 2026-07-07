@@ -654,7 +654,8 @@
 
     <script>
       (function () {
-        // 저녁 시간 계산기 — 시간만, 금액 환산 없음 (과장 금지)
+        // 저녁 시간 계산기 — 시간 + 최저시급 알바 환산 (2026년 최저시급 10,320원, 고용노동부 고시)
+        var MIN_WAGE = 10320;
         var st = document.getElementById('rcStudents');
         var out = document.getElementById('rcOut');
         function calc() {
@@ -662,10 +663,12 @@
           // 행정시간: 학생 1명당 월 20분 가정 (알림장 주1회×4분 + 출결·수납 정리)
           var adminH = s * 20 / 60;                     // 월 행정시간
           var perEveningMin = Math.round(adminH * 60 / 22); // 평일(월 22일) 저녁마다
+          var albaWon = Math.round(adminH * MIN_WAGE / 1000) * 1000; // 최저시급 환산(천원 반올림)
           out.innerHTML =
             '<p>학생 ' + s + '명의 알림장·출결·수납 행정은 <b>월 약 ' + adminH.toFixed(0) + '시간</b> — 수업이 끝난 뒤 <b>평일 저녁마다 약 ' + perEveningMin + '분</b>이 문서에 묶입니다.</p>' +
+            '<p>이 일을 알바에게 맡기면 최저시급으로만 계산해도 <b>월 약 ' + albaWon.toLocaleString('ko-KR') + '원</b>. 그런데 이 저녁을 쓰고 있는 건 알바가 아니라 <b>원장님</b>입니다 — 원장님의 시간은 최저시급이 아니죠.</p>' +
             '<p><b>hoopnote가 돌려드리는 건 이 저녁</b>, 그리고 재등록의 근거입니다.</p>' +
-            '<p style="color:var(--muted);font-size:12.5px">가정: 학생 1명당 월 20분(알림장 주 1회 4분 + 출결·수납 정리). 단순 산수이며 효과를 보장하는 수치가 아닙니다.</p>';
+            '<p style="color:var(--muted);font-size:12.5px">가정: 학생 1명당 월 20분(알림장 주 1회 4분 + 출결·수납 정리) · 2026년 최저시급 10,320원(고용노동부 고시). 단순 산수이며 효과를 보장하는 수치가 아닙니다.</p>';
         }
         if (st && out) { st.addEventListener('input', calc); calc(); }
 
