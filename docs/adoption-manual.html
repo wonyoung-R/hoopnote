@@ -582,10 +582,6 @@
           <label for="rcStudents">재학생 수</label>
           <input id="rcStudents" type="number" value="60" min="1" max="2000" inputmode="numeric">
         </div>
-        <div class="rc-row">
-          <label for="rcFee">1인 월 수강료 (원)</label>
-          <input id="rcFee" type="number" value="150000" min="10000" step="10000" inputmode="numeric">
-        </div>
         <div class="rc-out" id="rcOut" aria-live="polite"></div>
       </div>
     </section>
@@ -658,26 +654,20 @@
 
     <script>
       (function () {
-        // ROI 계산기 — 산수만, 과장 금지
-        var PLAN = 549000;
+        // 저녁 시간 계산기 — 시간만, 금액 환산 없음 (과장 금지)
         var st = document.getElementById('rcStudents');
-        var fee = document.getElementById('rcFee');
         var out = document.getElementById('rcOut');
-        function won(n) { return n.toLocaleString('ko-KR') + '원'; }
         function calc() {
           var s = Math.max(1, parseInt(st.value, 10) || 0);
-          var f = Math.max(10000, parseInt(fee.value, 10) || 0);
           // 행정시간: 학생 1명당 월 20분 가정 (알림장 주1회×4분 + 출결·수납 정리)
           var adminH = s * 20 / 60;                     // 월 행정시간
           var perEveningMin = Math.round(adminH * 60 / 22); // 평일(월 22일) 저녁마다
-          var studentYear = f * 12;                     // 학생 1명의 연간 가치
           out.innerHTML =
             '<p>학생 ' + s + '명의 알림장·출결·수납 행정은 <b>월 약 ' + adminH.toFixed(0) + '시간</b> — 수업이 끝난 뒤 <b>평일 저녁마다 약 ' + perEveningMin + '분</b>이 문서에 묶입니다.</p>' +
-            '<p>그리고 그 기록이 지켜내는 것: 학생 한 명의 재등록은 <b>연 ' + won(studentYear) + '</b>의 가치입니다. 기억이 아니라 기록이 지킵니다.</p>' +
-            '<p><b>hoopnote가 돌려드리는 건 이 두 가지</b> — 원장님의 저녁, 그리고 재등록의 근거.</p>' +
+            '<p><b>hoopnote가 돌려드리는 건 이 저녁</b>, 그리고 재등록의 근거입니다.</p>' +
             '<p style="color:var(--muted);font-size:12.5px">가정: 학생 1명당 월 20분(알림장 주 1회 4분 + 출결·수납 정리). 단순 산수이며 효과를 보장하는 수치가 아닙니다.</p>';
         }
-        if (st && fee && out) { st.addEventListener('input', calc); fee.addEventListener('input', calc); calc(); }
+        if (st && out) { st.addEventListener('input', calc); calc(); }
 
         // sticky CTA — 스크롤 25% 이후 노출, 닫으면 세션 내 유지
         var bar = document.getElementById('stickyCta');
