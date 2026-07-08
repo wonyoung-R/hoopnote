@@ -359,6 +359,52 @@
       .case-card blockquote { font-size: 21px; }
       .sticky-cta .sc-txt { display: none; }
     }
+    /* ── 도입상담 챗봇 위젯 (P2, 2026-07) ── */
+    .cw-fab {
+      position: fixed; right: 20px; bottom: 74px; z-index: 950;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 18px; border: 0; border-radius: var(--r-pill);
+      background: var(--orange); color: #001621;
+      font: inherit; font-size: 15px; font-weight: 800; cursor: pointer;
+      box-shadow: 0 12px 28px -10px rgba(255,65,3,.65);
+    }
+    .cw-panel {
+      position: fixed; right: 20px; bottom: 74px; z-index: 960;
+      width: min(380px, calc(100vw - 24px)); height: min(560px, calc(100vh - 120px));
+      display: none; flex-direction: column; overflow: hidden;
+      border: 1px solid var(--line); border-radius: var(--r-lg);
+      background: var(--paper); box-shadow: var(--sh-pop);
+    }
+    .cw-panel.open { display: flex; }
+    .cw-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 14px 16px; background: var(--panel-deep); border-bottom: 1px solid var(--line);
+    }
+    .cw-head b { color: var(--ink); font-size: 15px; }
+    .cw-head small { display: block; color: var(--muted); font-size: 11.5px; font-weight: 400; }
+    .cw-head button { background: none; border: 0; color: var(--muted); font-size: 20px; cursor: pointer; padding: 2px 8px; }
+    .cw-body { flex: 1; overflow-y: auto; padding: 16px 14px; display: flex; flex-direction: column; gap: 10px; }
+    .cw-msg { max-width: 85%; padding: 10px 13px; border-radius: 14px; font-size: 14px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+    .cw-msg.bot { align-self: flex-start; background: var(--card); border: 1px solid var(--line); color: var(--ink-2); border-bottom-left-radius: 4px; }
+    .cw-msg.user { align-self: flex-end; background: var(--orange); color: #001621; font-weight: 600; border-bottom-right-radius: 4px; }
+    .cw-msg a { color: var(--orange-soft); }
+    .cw-msg.user a { color: #001621; }
+    .cw-typing { align-self: flex-start; color: var(--muted); font-size: 13px; padding: 4px 6px; }
+    .cw-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--line); background: var(--paper-2); }
+    .cw-form input {
+      flex: 1; height: 44px; border: 1px solid var(--line); border-radius: var(--r-sm);
+      background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; padding: 0 12px;
+    }
+    .cw-form button {
+      height: 44px; padding: 0 16px; border: 0; border-radius: var(--r-sm);
+      background: var(--orange); color: #001621; font: inherit; font-weight: 800; cursor: pointer;
+    }
+    .cw-form button:disabled { opacity: .5; cursor: default; }
+    .cw-note { padding: 0 14px 10px; color: var(--muted-2); font-size: 11px; line-height: 1.5; background: var(--paper-2); }
+    @media (max-width: 640px) {
+      .cw-fab { right: 14px; bottom: 66px; }
+      .cw-panel { right: 8px; bottom: 66px; }
+    }
     @media (max-width: 640px) {
       .prep { flex-direction: column; }
       .price-head { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -652,6 +698,21 @@
       <button class="sc-close" id="scClose" aria-label="닫기">×</button>
     </div>
 
+    <button class="cw-fab" id="cwFab" aria-haspopup="dialog">🏀 도입 상담</button>
+    <div class="cw-panel" id="cwPanel" role="dialog" aria-label="도입 상담 채팅">
+      <div class="cw-head">
+        <div><b>자비스 · 도입상담</b><small>도입 관련 질문에 바로 답해드려요</small></div>
+        <button id="cwClose" aria-label="채팅 닫기">×</button>
+      </div>
+      <div class="cw-body" id="cwBody"></div>
+      <form class="cw-form" id="cwForm">
+        <input id="cwInput" type="text" maxlength="600" placeholder="예: 프로모션 조건이 어떻게 되나요?" autocomplete="off">
+        <input type="text" id="cwWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+        <button type="submit" id="cwSend">전송</button>
+      </form>
+      <p class="cw-note">AI 상담이라 부정확할 수 있어요. 정확한 안내는 <a href="../guide-request.html" style="color:var(--orange-soft)">도입 문의 폼</a>으로.</p>
+    </div>
+
     <script>
       (function () {
         // 저녁 시간 계산기 — 시간 + 최저시급 알바 환산 (2026년 최저시급 10,320원, 고용노동부 고시)
@@ -687,6 +748,76 @@
           var ratio = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight);
           bar.classList.toggle('show', ratio > 0.25);
         }, { passive: true });
+
+        // ── 도입상담 챗봇 위젯 ──
+        var API = 'https://academy.hoopnote.kr/api/landing/consult';
+        var WELCOME = '안녕하세요, 도입상담 비서 자비스예요 🏀\n가격·프로모션·수납·시작 방법, 무엇이든 물어보세요.';
+        var fab = document.getElementById('cwFab');
+        var panel = document.getElementById('cwPanel');
+        var bodyEl = document.getElementById('cwBody');
+        var form = document.getElementById('cwForm');
+        var inputEl = document.getElementById('cwInput');
+        var sendBtn = document.getElementById('cwSend');
+        var history = [];
+        var sessionId = null;
+        try {
+          history = JSON.parse(sessionStorage.getItem('cwHistory') || '[]');
+          sessionId = sessionStorage.getItem('cwSession');
+        } catch (e) {}
+        if (!sessionId) {
+          sessionId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() :
+            'xxxxxxxx-xxxx-4xxx-8xxx-xxxxxxxxxxxx'.replace(/x/g, function () { return (Math.random() * 16 | 0).toString(16); });
+          try { sessionStorage.setItem('cwSession', sessionId); } catch (e) {}
+        }
+        function urlify(t) {
+          return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+        }
+        function bubble(role, text) {
+          var d = document.createElement('div');
+          d.className = 'cw-msg ' + (role === 'user' ? 'user' : 'bot');
+          d.innerHTML = urlify(text);
+          bodyEl.appendChild(d);
+          bodyEl.scrollTop = bodyEl.scrollHeight;
+        }
+        function render() {
+          bodyEl.innerHTML = '';
+          bubble('bot', WELCOME);
+          history.forEach(function (m) { bubble(m.role, m.content); });
+        }
+        fab.addEventListener('click', function () { panel.classList.add('open'); fab.style.display = 'none'; render(); inputEl.focus(); });
+        document.getElementById('cwClose').addEventListener('click', function () { panel.classList.remove('open'); fab.style.display = ''; });
+        form.addEventListener('submit', function (ev) {
+          ev.preventDefault();
+          var q = inputEl.value.trim();
+          if (!q || sendBtn.disabled) return;
+          inputEl.value = '';
+          history.push({ role: 'user', content: q });
+          bubble('user', q);
+          sendBtn.disabled = true;
+          var typing = document.createElement('div');
+          typing.className = 'cw-typing';
+          typing.textContent = '자비스가 입력 중…';
+          bodyEl.appendChild(typing); bodyEl.scrollTop = bodyEl.scrollHeight;
+          fetch(API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sessionId: sessionId, messages: history, website: document.getElementById('cwWebsite').value || '' })
+          })
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              var reply = (d && d.data && d.data.reply) ||
+                '연결이 원활하지 않아요. 도입 문의 폼을 남겨주세요 → https://www.hoopnote.kr/guide-request.html';
+              history.push({ role: 'assistant', content: reply });
+              try { sessionStorage.setItem('cwHistory', JSON.stringify(history.slice(-40))); } catch (e) {}
+              typing.remove(); bubble('bot', reply);
+            })
+            .catch(function () {
+              typing.remove();
+              bubble('bot', '연결이 원활하지 않아요. 도입 문의 폼을 남겨주세요 → https://www.hoopnote.kr/guide-request.html');
+            })
+            .finally(function () { sendBtn.disabled = false; inputEl.focus(); });
+        });
       })();
     </script>
   </main>
