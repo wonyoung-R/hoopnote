@@ -41,10 +41,11 @@
       "operatingSystem": "Web",
       "url": "https://www.hoopnote.kr",
       "description": "유소년 농구 학원을 위한 경기 기록, AI 알림장, 성장 리포트, 카카오 알림톡 발송, 수납 안내 운영 시스템",
-      "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/OnlineOnly"
-      },
+      "offers": [
+        { "@type": "Offer", "name": "재학생 100~299명", "price": "199000", "priceCurrency": "KRW", "availability": "https://schema.org/OnlineOnly" },
+        { "@type": "Offer", "name": "재학생 300~499명", "price": "349000", "priceCurrency": "KRW", "availability": "https://schema.org/OnlineOnly" },
+        { "@type": "Offer", "name": "재학생 500명 이상", "price": "549000", "priceCurrency": "KRW", "availability": "https://schema.org/OnlineOnly" }
+      ],
       "provider": {
         "@type": "Organization",
         "name": "엠비엠에스",
@@ -66,7 +67,12 @@
         {
           "@type": "Question",
           "name": "학부모가 별도 앱을 설치해야 하나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "아닙니다. 학부모는 카카오톡으로 알림을 받습니다. 카카오 채널 친구 추가만 하시면 됩니다." }
+          "acceptedAnswer": { "@type": "Answer", "text": "아닙니다. 학부모는 카카오톡 알림톡으로 알림을 받습니다. 채널 친구 추가 없이 휴대폰 번호만으로 도달합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "요금이 어떻게 되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "재학생 수에 따라 월 199,000원(100~299명), 349,000원(300~499명), 549,000원(500명 이상)입니다. 첫 달은 완전 무료이며 약정이 없습니다." }
         },
         {
           "@type": "Question",
@@ -548,23 +554,24 @@
   <section class="section" id="pricing">
     <div class="sec-head">
       <div class="eyebrow">PRICING · 요금제</div>
-      <h2>요금제는 하나,<br>먼저 도입 조건을 확인하세요.</h2>
-      <p>hoopnote는 단일 요금제 구조입니다. 비용부터 비교하기보다 학생 수, 코치 수, 현재 쓰는 도구 기준으로 우리 학원에 맞는지 먼저 확인할 수 있게 안내합니다.</p>
+      <h2>요금은 학생 규모별,<br>첫 달은 무료입니다.</h2>
+      <p>hoopnote 요금은 재학생 수로만 정해집니다. 100~299명 월 199,000원 · 300~499명 월 349,000원 · 500명 이상 월 549,000원 — 어느 티어든 첫 달은 완전 무료이고, 코치·클래스는 무제한입니다.</p>
     </div>
     <div class="pricing-grid">
       <article class="plan">
         <div class="plan-head">
           <div>
-            <span class="ptag">HOOP PLAN</span>
-            <h3>Hoop Plan</h3>
-            <p>농구학원 운영 흐름 전체에 적용되는 단일 요금제</p>
+            <span class="ptag">PRICING</span>
+            <h3>학생 규모별 요금</h3>
+            <p>재학생 100~299명 ₩199,000 · 300~499명 ₩349,000 · 500명 이상 ₩549,000 /월</p>
           </div>
-          <div class="plan-status">비용 안내 확인하기</div>
+          <div class="plan-status">규모별 요금 확인하기</div>
         </div>
         <div class="plan-badges">
-          <span>1년 결제 시 2개월 무료</span>
+          <span>첫 달 완전 무료</span>
           <span>약정 없음</span>
           <span>코치·클래스 무제한</span>
+          <span>1년 결제 시 2개월 무료</span>
         </div>
         <div class="plan-scope">
           <div><strong>운영 병목 자동화</strong><span>명단, 출석, 일정, 회차 관리</span></div>
