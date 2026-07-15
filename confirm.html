@@ -173,8 +173,9 @@
           }
           if (d.tier) {
             var t = document.getElementById('tierLine');
-            t.innerHTML = '🏀 ' + d.tier.label + ' 규모시면 <span style="color:var(--blue)">' + d.tier.priceText + '</span> — 첫 달은 완전 무료입니다.' +
-              '<small>약정 없음 · 언제든 해지 · 코치/클래스 무제한</small>';
+            // 가격은 노출하지 않는다(사장 결정) — 규모만 확인해주고 정확한 금액은 메일로.
+            t.innerHTML = '🏀 ' + d.tier.label + ' 규모로 확인됐어요 — <span style="color:var(--blue)">첫 달은 완전 무료</span>입니다.' +
+              '<small>정확한 요금은 도입 안내 메일로 보내드립니다 · 약정 없음 · 코치/클래스 무제한</small>';
             t.classList.remove('hidden');
           }
           show('stateForm');

@@ -41,11 +41,11 @@
       "operatingSystem": "Web",
       "url": "https://www.hoopnote.kr",
       "description": "유소년 농구 학원을 위한 경기 기록, AI 알림장, 성장 리포트, 카카오 알림톡 발송, 수납 안내 운영 시스템",
-      "offers": [
-        { "@type": "Offer", "name": "재학생 100~299명", "price": "199000", "priceCurrency": "KRW", "availability": "https://schema.org/OnlineOnly" },
-        { "@type": "Offer", "name": "재학생 300~499명", "price": "349000", "priceCurrency": "KRW", "availability": "https://schema.org/OnlineOnly" },
-        { "@type": "Offer", "name": "재학생 500명 이상", "price": "549000", "priceCurrency": "KRW", "availability": "https://schema.org/OnlineOnly" }
-      ],
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/OnlineOnly",
+        "description": "재학생 규모별 요금 · 첫 달 무료 · 도입 안내 시 금액 안내"
+      },
       "provider": {
         "@type": "Organization",
         "name": "엠비엠에스",
@@ -72,7 +72,7 @@
         {
           "@type": "Question",
           "name": "요금이 어떻게 되나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "재학생 수에 따라 월 199,000원(100~299명), 349,000원(300~499명), 549,000원(500명 이상)입니다. 첫 달은 완전 무료이며 약정이 없습니다." }
+          "acceptedAnswer": { "@type": "Answer", "text": "요금은 재학생 규모에 따라 책정되며, 첫 달은 완전 무료이고 약정이 없습니다. 정확한 금액은 도입 문의를 남기시면 메일로 안내드립니다." }
         },
         {
           "@type": "Question",
@@ -555,7 +555,7 @@
     <div class="sec-head">
       <div class="eyebrow">PRICING · 요금제</div>
       <h2>요금은 학생 규모별,<br>첫 달은 무료입니다.</h2>
-      <p>hoopnote 요금은 재학생 수로만 정해집니다. 100~299명 월 199,000원 · 300~499명 월 349,000원 · 500명 이상 월 549,000원 — 어느 티어든 첫 달은 완전 무료이고, 코치·클래스는 무제한입니다.</p>
+      <p>hoopnote 요금은 재학생 규모에 따라 책정됩니다. 정확한 금액은 도입 안내에서 메일로 알려드립니다. 어느 규모든 첫 달은 완전 무료이고, 코치·클래스는 무제한입니다.</p>
     </div>
     <div class="pricing-grid">
       <article class="plan">
@@ -563,9 +563,9 @@
           <div>
             <span class="ptag">PRICING</span>
             <h3>학생 규모별 요금</h3>
-            <p>재학생 100~299명 ₩199,000 · 300~499명 ₩349,000 · 500명 이상 ₩549,000 /월</p>
+            <p>재학생 규모에 따라 책정됩니다. 정확한 금액은 도입 안내 메일로 알려드립니다.</p>
           </div>
-          <div class="plan-status">규모별 요금 확인하기</div>
+          <div class="plan-status">도입 안내로 금액 확인</div>
         </div>
         <div class="plan-badges">
           <span>첫 달 완전 무료</span>
@@ -584,8 +584,8 @@
     </div>
     <div class="pricing-cta">
       <div>
-        <strong>비용 안내는 자료에서 확인</strong>
-        <span>이메일과 학생 수만 남기면 우리 학원 요금과 도입 안내 정보 페이지로 이어집니다.</span>
+        <strong>정확한 요금은 도입 안내 메일로</strong>
+        <span>이메일과 학생 수만 남기면, 학원 규모에 맞는 요금을 메일로 정리해 보내드립니다.</span>
       </div>
       <a class="btn btn-pri btn-lg" href="guide-request.html">도입 안내 정보 받기 <span class="icon" data-icon="arrow"></span></a>
     </div>

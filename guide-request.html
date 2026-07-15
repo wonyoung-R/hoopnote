@@ -173,14 +173,13 @@
           </div>
 
           <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
-          <button class="btn btn-pri btn-lg request-submit" type="submit">도입 안내 정보 페이지 받기</button>
+          <button class="btn btn-pri btn-lg request-submit" type="submit">도입 안내 신청</button>
           <p class="privacy-note">입력한 정보는 도입 안내 목적의 규모 판단과 안내 발송에만 사용됩니다.</p>
         </form>
 
         <div class="guide-result" id="guideResult" aria-live="polite">
-          <h3>도입 안내서가 준비되었습니다.</h3>
-          <p id="guideSummary">입력하신 정보를 기준으로 학생 규모별 요금, 첫 달 무료, 추천 시작 범위를 확인할 수 있습니다.</p>
-          <a class="btn btn-pri" href="docs/adoption-manual.html">도입 안내 정보 페이지 열기</a>
+          <h3>접수되었습니다 🏀</h3>
+          <p id="guideSummary">남겨주신 이메일로, 학원 규모에 맞는 도입 안내를 정리해 보내드리겠습니다.</p>
         </div>
       </div>
     </section>
@@ -192,17 +191,8 @@
       var btn = form.querySelector('.request-submit');
       var ENDPOINT = 'https://academy.hoopnote.kr/api/landing/guide-request';
 
-      // 폼 학생수 3버킷 ↔ 요금 3티어 1:1 (가격 개편 A안, 2026-07)
-      var TIER = {
-        '100명 ~ 299명': '월 199,000원',
-        '300명 ~ 499명': '월 349,000원',
-        '500명 이상': '월 549,000원'
-      };
-      function showResult(students) {
-        var price = TIER[students];
-        document.getElementById('guideSummary').textContent = price
-          ? '재학생 ' + students.replace(/ /g, '') + ' 규모시면 ' + price + ' — 첫 달은 완전 무료입니다. 약정 없이 시작할 수 있습니다.'
-          : '입력하신 규모 기준으로 도입 안내 정보를 확인할 수 있습니다.';
+      // 가격은 랜딩에 노출하지 않는다(2026-07 사장 결정) — 정확한 금액은 도입 안내 메일로.
+      function showResult() {
         var result = document.getElementById('guideResult');
         result.classList.add('is-visible');
         result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -233,7 +223,7 @@
           .finally(function () {
             btn.disabled = false;
             btn.textContent = original;
-            showResult(students);
+            showResult();
           });
       });
     })();
