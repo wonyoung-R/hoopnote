@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hoopnote 도입 시작하기</title>
+  <meta name="description" content="hoopnote 도입 확정 — 연락처만 남기면 세팅 일정을 안내드립니다.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: var(--paper); }
+    .confirm-shell { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .confirm-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding: 28px 0; border-bottom: 1px solid var(--line);
+    }
+    .confirm-nav .back { color: var(--blue); text-decoration: none; font-size: 14px; font-weight: 700; }
+    .confirm-layout { padding: 56px 0 76px; }
+    .confirm-card {
+      border: 2px solid var(--blue); border-radius: var(--r-xl);
+      padding: 32px; background: var(--card);
+      box-shadow: 0 22px 44px -30px rgba(255,65,3,.35);
+    }
+    .confirm-card h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: -.025em; font-weight: 800; }
+    .confirm-card .lead { margin: 0 0 20px; color: var(--ink-2); font-size: 15px; line-height: 1.65; }
+    .tier-line {
+      margin: 0 0 24px; padding: 14px 16px; border-radius: var(--r-md);
+      background: var(--blue-wash); border: 1px solid var(--line);
+      color: var(--ink); font-size: 15px; line-height: 1.6; font-weight: 700;
+    }
+    .tier-line small { display: block; margin-top: 4px; color: var(--muted); font-weight: 400; font-size: 12px; }
+    .confirm-form { display: grid; gap: 18px; }
+    .field { display: grid; gap: 8px; }
+    .field label { font-size: 14px; color: var(--ink); font-weight: 800; letter-spacing: -.01em; }
+    .field small { color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .field input[type="text"], .field input[type="tel"] {
+      width: 100%; height: 48px; border: 1px solid var(--line);
+      border-radius: var(--r-sm); padding: 0 14px; font: inherit;
+      color: var(--ink); background: var(--paper);
+    }
+    .field input:focus { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .payssam-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+    .payssam-option {
+      display: flex; align-items: center; min-height: 44px; padding: 10px 12px;
+      border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--paper);
+      cursor: pointer; color: var(--ink-2); font-size: 14px; font-weight: 700;
+    }
+    .payssam-option input { margin: 0 8px 0 0; accent-color: var(--blue); }
+    .confirm-submit { margin-top: 4px; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 52px; border: 0; }
+    .not-payment {
+      margin: -4px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5;
+    }
+    .state-box {
+      padding: 24px; border-radius: var(--r-md); border: 1px solid var(--line);
+      background: var(--blue-wash); color: var(--ink-2); font-size: 15px; line-height: 1.65;
+    }
+    .state-box h2 { margin: 0 0 8px; font-size: 20px; color: var(--ink); letter-spacing: -.02em; }
+    .state-box .btn { margin-top: 14px; }
+    .hidden { display: none; }
+    @media (max-width: 640px) {
+      .confirm-card { padding: 24px; }
+      .confirm-card h1 { font-size: 24px; }
+      .payssam-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="confirm-shell">
+    <nav class="confirm-nav" aria-label="도입 시작 내비게이션">
+      <a class="logo" href="index.html"><span class="mark"></span>hoopnote</a>
+      <a class="back" href="docs/adoption-manual.html">도입 안내 페이지</a>
+    </nav>
+
+    <section class="confirm-layout">
+      <div class="confirm-card">
+        <!-- 로딩 -->
+        <div id="stateLoading" class="state-box">확인 중입니다…</div>
+
+        <!-- 링크 오류/만료 -->
+        <div id="stateInvalid" class="state-box hidden">
+          <h2>링크를 확인할 수 없습니다</h2>
+          <p id="invalidMsg">링크가 유효하지 않거나 만료되었습니다. 도입 문의를 다시 남겨주시면 새 안내 메일을 보내드립니다.</p>
+          <a class="btn btn-pri" href="guide-request.html">도입 문의 다시 남기기</a>
+        </div>
+
+        <!-- 이미 확정 -->
+        <div id="stateAlready" class="state-box hidden">
+          <h2>이미 접수되었습니다 🏀</h2>
+          <p>도입 확정이 접수되어 있습니다. 세팅 일정은 이메일로 안내드립니다. 궁금하신 점은 hello@hoopnote.kr 로 회신 주세요.</p>
+        </div>
+
+        <!-- 완료 -->
+        <div id="stateDone" class="state-box hidden">
+          <h2>접수 완료! 🏀</h2>
+          <p>감사합니다. 남겨주신 번호로 세팅 일정을 곧 안내드리겠습니다. 결제는 이 단계에서 이루어지지 않으며, 세팅 후 별도로 안내드립니다.</p>
+          <a class="btn btn-pri" href="docs/adoption-manual.html">도입 안내 페이지 보기</a>
+        </div>
+
+        <!-- 확정 폼 -->
+        <div id="stateForm" class="hidden">
+          <h1 id="formTitle">도입을 시작합니다</h1>
+          <p class="lead">연락처만 남겨주시면 세팅 일정을 바로 안내드립니다. 1분이면 됩니다.</p>
+          <p class="tier-line hidden" id="tierLine"></p>
+
+          <form class="confirm-form" id="confirmForm">
+            <div class="field hidden" id="academyField">
+              <label for="academyName">학원명</label>
+              <input id="academyName" name="academyName" type="text" placeholder="예: ○○농구클럽" maxlength="60">
+            </div>
+
+            <div class="field">
+              <label for="phone">휴대폰 번호</label>
+              <input id="phone" name="phone" type="tel" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel" required>
+              <small>세팅 일정 안내와 구독료 청구서(결제선생) 발송 목적으로만 사용됩니다.</small>
+            </div>
+
+            <div class="field">
+              <label>결제선생을 쓰고 계신가요? <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+              <div class="payssam-grid">
+                <label class="payssam-option"><input type="radio" name="payssam" value="yes"> 네, 사용 중입니다</label>
+                <label class="payssam-option"><input type="radio" name="payssam" value="no"> 아니요, 처음입니다</label>
+              </div>
+              <small>처음이셔도 등록 절차를 저희가 처음부터 끝까지 함께 도와드립니다.</small>
+            </div>
+
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+            <button class="btn btn-pri btn-lg confirm-submit" type="submit">세팅 일정 안내받기</button>
+            <p class="not-payment">※ 이 단계는 결제가 아닙니다. 구독 결제는 세팅이 끝난 뒤 별도로 안내드립니다. 첫 달은 완전 무료입니다.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var API = 'https://academy.hoopnote.kr/api/landing/confirm';
+      var token = new URLSearchParams(location.search).get('t') || '';
+      var UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+      function show(id) {
+        ['stateLoading', 'stateInvalid', 'stateAlready', 'stateDone', 'stateForm'].forEach(function (s) {
+          document.getElementById(s).classList.toggle('hidden', s !== id);
+        });
+      }
+
+      if (!UUID_RE.test(token)) { show('stateInvalid'); return; }
+
+      // GET — 프리필 + 티어 노출 (열람 시각은 서버가 기록)
+      fetch(API + '?t=' + encodeURIComponent(token))
+        .then(function (res) {
+          if (res.status === 410) {
+            document.getElementById('invalidMsg').textContent =
+              '링크 유효기간(30일)이 지났습니다. 도입 문의를 다시 남겨주시면 새 안내 메일을 보내드립니다.';
+            show('stateInvalid'); return null;
+          }
+          if (!res.ok) { show('stateInvalid'); return null; }
+          return res.json();
+        })
+        .then(function (json) {
+          if (!json) return;
+          var d = json.data || {};
+          if (d.confirmed) { show('stateAlready'); return; }
+
+          if (d.academyName) {
+            document.getElementById('formTitle').textContent = d.academyName + ' 도입을 시작합니다';
+            document.getElementById('academyName').value = d.academyName;
+          } else {
+            // progressive: 폼에서 처음 받은 학원명은 이때만 노출
+            document.getElementById('academyField').classList.remove('hidden');
+          }
+          if (d.tier) {
+            var t = document.getElementById('tierLine');
+            t.innerHTML = '🏀 ' + d.tier.label + ' 규모시면 <span style="color:var(--blue)">' + d.tier.priceText + '</span> — 첫 달은 완전 무료입니다.' +
+              '<small>약정 없음 · 언제든 해지 · 코치/클래스 무제한</small>';
+            t.classList.remove('hidden');
+          }
+          show('stateForm');
+        })
+        .catch(function () { show('stateInvalid'); });
+
+      // POST — 확정 제출
+      document.getElementById('confirmForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var btn = document.querySelector('.confirm-submit');
+        var payssamEl = document.querySelector('input[name="payssam"]:checked');
+        var body = {
+          t: token,
+          phone: document.getElementById('phone').value,
+          academyName: document.getElementById('academyName').value.trim(),
+          company: (document.getElementById('company') || {}).value || ''
+        };
+        if (payssamEl) body.payssamUser = payssamEl.value === 'yes';
+
+        var original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = '접수 중…';
+
+        fetch(API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        })
+          .then(function (res) { return res.json().then(function (j) { return { status: res.status, json: j }; }); })
+          .then(function (r) {
+            if (r.status === 200) {
+              show((r.json.data && r.json.data.already) ? 'stateAlready' : 'stateDone');
+              return;
+            }
+            if (r.status === 410) {
+              document.getElementById('invalidMsg').textContent =
+                '링크 유효기간(30일)이 지났습니다. 도입 문의를 다시 남겨주시면 새 안내 메일을 보내드립니다.';
+              show('stateInvalid'); return;
+            }
+            var msg = (r.json.error && r.json.error.message) || '잠시 후 다시 시도해 주세요.';
+            alert(msg);
+            btn.disabled = false;
+            btn.textContent = original;
+          })
+          .catch(function () {
+            // 네트워크/서버 오류 — 재시도 안내 (입력값은 유지된다)
+            alert('일시적인 오류입니다. 잠시 후 다시 시도해 주세요.');
+            btn.disabled = false;
+            btn.textContent = original;
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

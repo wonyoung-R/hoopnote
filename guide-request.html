@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>hoopnote 도입 안내서 받아보기</title>
-  <meta name="description" content="학생 수, 코치 수, 현재 쓰는 도구만 입력하고 hoopnote 도입 안내서를 받아보세요. 카톡 상담 없이 먼저 자료로 확인할 수 있습니다.">
+  <meta name="description" content="이메일과 학생 수만 입력하고 hoopnote 도입 안내서를 받아보세요. 카톡 상담 없이 먼저 자료로 확인할 수 있습니다.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://www.hoopnote.kr/guide-request.html">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -138,7 +138,7 @@
       <div class="request-copy">
         <div class="eyebrow">GUIDE REQUEST · 도입 안내서</div>
         <h1>상담 전에,<br><em>자료로 먼저</em><br>확인하세요.</h1>
-        <p>학생 수, 코치 수, 현재 쓰는 도구만 남기면 hoopnote가 어떤 규모의 농구학원에 잘 맞는지 정리한 도입 안내 정보 페이지를 바로 확인할 수 있습니다.</p>
+        <p>이메일과 학생 수만 남기면 우리 학원 요금과 도입 안내 정보 페이지를 바로 확인할 수 있습니다.</p>
         <div class="request-points">
           <div class="request-point"><b>1</b><span>카톡 상담 없이 자료부터 확인합니다.</span></div>
           <div class="request-point"><b>2</b><span>요금이 학생 규모로 정해져서, 재학생 수 기준으로 먼저 판단할 수 있습니다.</span></div>
@@ -148,11 +148,11 @@
 
       <div class="request-card">
         <h2>도입 안내서 받아보기</h2>
-        <p class="form-lead">필수 입력은 4개입니다. 제출 후 도입 안내 정보 페이지로 이어집니다.</p>
+        <p class="form-lead">필수 입력은 2개입니다. 제출하면 우리 학원 요금과 도입 안내 정보 페이지가 바로 열립니다.</p>
         <form class="guide-form" id="guideForm">
           <div class="field">
-            <label for="academyName">학원명</label>
-            <input id="academyName" name="academyName" type="text" placeholder="예: ○○농구클럽" maxlength="60" required>
+            <label for="academyName">학원명 <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+            <input id="academyName" name="academyName" type="text" placeholder="예: ○○농구클럽" maxlength="60">
           </div>
 
           <div class="field">
@@ -164,27 +164,6 @@
               <option>500명 이상</option>
             </select>
             <small>정확하지 않아도 괜찮습니다. 대략적인 규모만 선택해 주세요.</small>
-          </div>
-
-          <div class="field">
-            <label for="coachCount">코치 수</label>
-            <select id="coachCount" name="coachCount" required>
-              <option value="">선택해 주세요</option>
-              <option>원장님 1명</option>
-              <option>2~3명</option>
-              <option>4~6명</option>
-              <option>7명 이상</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>현재 쓰는 도구</label>
-            <div class="tool-grid">
-              <label class="tool-option"><input type="checkbox" name="tools" value="카톡"> 카톡</label>
-              <label class="tool-option"><input type="checkbox" name="tools" value="엑셀"> 엑셀</label>
-              <label class="tool-option"><input type="checkbox" name="tools" value="결제선생"> 결제선생</label>
-              <label class="tool-option"><input type="checkbox" name="tools" value="별도 앱"> 별도 앱</label>
-            </div>
           </div>
 
           <div class="field">
@@ -213,10 +192,17 @@
       var btn = form.querySelector('.request-submit');
       var ENDPOINT = 'https://academy.hoopnote.kr/api/landing/guide-request';
 
-      function showResult(students, coaches, tools) {
-        document.getElementById('guideSummary').textContent =
-          '학생 수 ' + students + ', 코치 수 ' + coaches + ', 현재 도구 ' + tools.join(', ') +
-          ' 기준으로 도입 안내 정보를 확인할 수 있습니다.';
+      // 폼 학생수 3버킷 ↔ 요금 3티어 1:1 (가격 개편 A안, 2026-07)
+      var TIER = {
+        '100명 ~ 299명': '월 199,000원',
+        '300명 ~ 499명': '월 349,000원',
+        '500명 이상': '월 549,000원'
+      };
+      function showResult(students) {
+        var price = TIER[students];
+        document.getElementById('guideSummary').textContent = price
+          ? '재학생 ' + students.replace(/ /g, '') + ' 규모시면 ' + price + ' — 첫 달은 완전 무료입니다. 약정 없이 시작할 수 있습니다.'
+          : '입력하신 규모 기준으로 도입 안내 정보를 확인할 수 있습니다.';
         var result = document.getElementById('guideResult');
         result.classList.add('is-visible');
         result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -226,17 +212,8 @@
         event.preventDefault();
         var academyName = document.getElementById('academyName').value.trim();
         var students = document.getElementById('studentCount').value;
-        var coaches = document.getElementById('coachCount').value;
         var contact = document.getElementById('contact').value;
-        var tools = Array.from(document.querySelectorAll('input[name="tools"]:checked')).map(function (input) {
-          return input.value;
-        });
         var company = (document.getElementById('company') || {}).value || ''; // 허니팟(봇 차단)
-
-        if (!tools.length) {
-          alert('현재 쓰는 도구를 하나 이상 선택해 주세요.');
-          return;
-        }
 
         var original = btn.textContent;
         btn.disabled = true;
@@ -249,8 +226,6 @@
           body: JSON.stringify({
             academyName: academyName,
             studentCount: students,
-            coachCount: coaches,
-            tools: tools,
             contact: contact,
             company: company
           })
@@ -258,7 +233,7 @@
           .finally(function () {
             btn.disabled = false;
             btn.textContent = original;
-            showResult(students, coaches, tools);
+            showResult(students);
           });
       });
     })();
