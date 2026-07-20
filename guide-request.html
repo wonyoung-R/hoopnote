@@ -148,11 +148,11 @@
 
       <div class="request-card">
         <h2>도입 안내서 받아보기</h2>
-        <p class="form-lead">필수 입력은 2개입니다. 제출하면 우리 학원 요금과 도입 안내 정보 페이지가 바로 열립니다.</p>
+        <p class="form-lead">30초면 끝납니다. 남겨주신 이메일로 우리 학원 규모에 맞는 도입 안내와 요금을 정리해 보내드립니다.</p>
         <form class="guide-form" id="guideForm">
           <div class="field">
-            <label for="academyName">학원명 <span style="color:var(--muted);font-weight:400">(선택)</span></label>
-            <input id="academyName" name="academyName" type="text" placeholder="예: ○○농구클럽" maxlength="60">
+            <label for="academyName">학원명</label>
+            <input id="academyName" name="academyName" type="text" placeholder="예: ○○농구클럽" maxlength="60" required>
           </div>
 
           <div class="field">
@@ -191,6 +191,23 @@
       var btn = form.querySelector('.request-submit');
       var ENDPOINT = 'https://academy.hoopnote.kr/api/landing/guide-request';
 
+      // 유입 utm 계측(마이그 00099) — 인스타/스레드 링크의 utm 파라미터를 리드에 붙인다.
+      // 이 페이지 URL에 있으면 그걸 쓰고(세션에도 저장), 없으면 index 진입 때 저장된 세션 값 폴백.
+      function readUtm() {
+        var utm = { s: null, m: null, c: null };
+        try {
+          var p = new URLSearchParams(location.search);
+          utm.s = p.get('utm_source'); utm.m = p.get('utm_medium'); utm.c = p.get('utm_campaign');
+          if (utm.s || utm.m || utm.c) {
+            sessionStorage.setItem('hn_utm', JSON.stringify(utm));
+            return utm;
+          }
+          var saved = JSON.parse(sessionStorage.getItem('hn_utm') || 'null');
+          if (saved) return saved;
+        } catch (e) { /* 계측 실패는 리드 제출을 막지 않는다 */ }
+        return utm;
+      }
+
       // 가격은 랜딩에 노출하지 않는다(2026-07 사장 결정) — 정확한 금액은 도입 안내 메일로.
       function showResult() {
         var result = document.getElementById('guideResult');
@@ -210,6 +227,7 @@
         btn.textContent = '안내서 준비 중...';
 
         // lead 저장(best-effort). 네트워크 실패해도 안내서(정적 페이지)는 보여준다.
+        var utm = readUtm();
         fetch(ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -217,7 +235,10 @@
             academyName: academyName,
             studentCount: students,
             contact: contact,
-            company: company
+            company: company,
+            utmSource: utm.s,
+            utmMedium: utm.m,
+            utmCampaign: utm.c
           })
         }).catch(function () { /* lead 유실은 서버 로그로만, UX는 진행 */ })
           .finally(function () {
