@@ -777,3 +777,39 @@ footer { padding: 40px 0 60px; border-top: 1px solid var(--line); font-size: 13p
   .split .art .big { font-size: 36px; }
   .art-quick { grid-template-columns: 1fr 1fr 1fr; }
 }
+
+/* === PROOF · 실제 화면 (2026-07-22 P1) === */
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.proof-card {
+  margin: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.proof-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+.proof-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px 18px;
+}
+.proof-card figcaption strong { font-size: 15px; color: var(--ink); letter-spacing: -.01em; }
+.proof-card figcaption span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.proof-note { margin-top: 14px; font-size: 12px; color: var(--muted-2); }
+#pricing .roi-band { margin-bottom: 48px; }
+#features .asset-flow { margin-top: 28px; }
+@media (max-width: 720px) {
+  .proof-grid { grid-template-columns: 1fr; gap: 16px; }
+}
