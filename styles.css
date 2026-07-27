@@ -796,9 +796,9 @@ footer .logo { color: #fff; }
 .proof-card img {
   display: block;
   width: 100%;
-  height: 300px;              /* 카드 높이 균일화 (2/2/1) — 사장 피드백 2026-07-28 */
+  height: 380px;              /* 카드 높이 균일화 + 확대 — 사장 피드백 2026-07-28 2차 */
   object-fit: cover;
-  object-position: left top;  /* 앱 화면 상단(헤더·핵심 UI) 기준 크롭 */
+  object-position: center;    /* 원본이 와이드 캡처라 좌상단 크롭 시 콘텐츠가 흩어짐 → 중앙 통일 */
   border-bottom: 1px solid var(--line);
   background: #fff;
 }
@@ -815,5 +815,5 @@ footer .logo { color: #fff; }
 #features .asset-flow { margin-top: 28px; }
 @media (max-width: 720px) {
   .proof-grid { grid-template-columns: 1fr; gap: 16px; }
-  .proof-card img { height: 230px; }
+  .proof-card img { height: 280px; }
 }
