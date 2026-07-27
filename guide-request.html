@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>hoopnote 도입 안내서 받아보기</title>
-  <meta name="description" content="이메일과 학생 수만 입력하고 hoopnote 도입 안내서를 받아보세요. 카톡 상담 없이 먼저 자료로 확인할 수 있습니다.">
+  <meta name="description" content="학원명·이메일·학생 수만 입력하고 hoopnote 도입 안내서를 받아보세요. 카톡 상담 없이 먼저 자료로 확인할 수 있습니다.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://www.hoopnote.kr/guide-request.html">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -51,7 +51,6 @@
     .request-card {
       border: 2px solid var(--blue); border-radius: var(--r-xl);
       padding: 32px; background: var(--card);
-      box-shadow: 0 22px 44px -30px rgba(255,65,3,.35);
       position: relative; overflow: hidden;
     }
     .request-card::before {
@@ -113,12 +112,12 @@
     }
     .guide-result p { margin: 0 0 14px; color: var(--ink-2); font-size: 14px; line-height: 1.6; }
     .guide-result .btn { justify-content: center; width: min(320px, 100%); }
-    /* 실패 상태 — 접수 완료(navy wash)와 한눈에 구분되도록 경고 톤. 다크 배경에서 대비 확보. */
+    /* 실패 상태 — 접수 완료와 한눈에 구분되도록 경고 톤. 라이트 배경 대비 확보. */
     .guide-error { background: var(--orange-wash); border-color: var(--orange); }
-    .guide-error h3 { color: var(--orange-soft); }
+    .guide-error h3 { color: var(--blue-2); }
     .guide-error p:last-child { margin-bottom: 0; }
     .guide-error-fallback { font-size: 13px; color: var(--muted); }
-    .guide-error-fallback a { color: var(--orange-soft); text-decoration: underline; }
+    .guide-error-fallback a { color: var(--blue-2); text-decoration: underline; }
     @media (max-width: 900px) {
       .request-layout { grid-template-columns: 1fr; gap: 36px; padding: 48px 0 64px; }
       .request-copy h1 { font-size: 44px; }
@@ -144,7 +143,7 @@
       <div class="request-copy">
         <div class="eyebrow">GUIDE REQUEST · 도입 안내서</div>
         <h1>상담 전에,<br><em>자료로 먼저</em><br>확인하세요.</h1>
-        <p>이메일과 학생 수만 남기면 우리 학원 요금과 도입 안내 정보 페이지를 바로 확인할 수 있습니다.</p>
+        <p>학원명·이메일·학생 수만 남기면 우리 학원 요금과 도입 안내 정보 페이지를 바로 확인할 수 있습니다.</p>
         <div class="request-points">
           <div class="request-point"><b>1</b><span>카톡 상담 없이 자료부터 확인합니다.</span></div>
           <div class="request-point"><b>2</b><span>요금이 학생 규모로 정해져서, 재학생 수 기준으로 먼저 판단할 수 있습니다.</span></div>
