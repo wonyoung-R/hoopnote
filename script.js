@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(0,22,33,0.97)';
-            navbar.style.boxShadow = '0 1px 0 rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.35)';
+            // 라이트 리스킨(2026-07-27): 스크롤 시에도 화이트 유지 — 그림자 대신 보더 언어
+            navbar.style.background = 'rgba(255,255,255,0.97)';
+            navbar.style.boxShadow = 'none';
         } else {
-            navbar.style.background = 'rgba(0,22,33,0.9)';
+            navbar.style.background = 'rgba(255,255,255,0.94)';
             navbar.style.boxShadow = 'none';
         }
     });

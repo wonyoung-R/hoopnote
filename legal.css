@@ -1,18 +1,19 @@
 /* HoopNote 법적 고지 페이지 공통 스타일 — index.html(styles.css) 톤 계승 */
 :root {
-  --paper: #F6F2EA;
+  /* Reskin 2026-07-27 (A안): 랜딩과 동일한 라이트 네이비 언어로 동기화 */
+  --paper: #FFFFFF;
   --card: #FFFFFF;
-  --ink: #141414;
-  --ink-2: #2A2A2A;
-  --muted: #6B6B6B;
-  --line: #E5DFD1;
-  --orange: #EE6730;
-  --orange-2: #D95821;
-  --orange-soft: #FFE3D4;
-  --orange-wash: #FFF3EA;
+  --ink: #001621;
+  --ink-2: #33454F;
+  --muted: #5E7C8D;
+  --line: #E2E8EC;
+  --orange: #FF4103;
+  --orange-2: #D63700;
+  --orange-soft: #FFD3C2;
+  --orange-wash: #FFF3ED;
   --f-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --r-md: 12px;
-  --r-lg: 16px;
+  --r-md: 3px;
+  --r-lg: 4px;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html, body {
@@ -31,7 +32,7 @@ html, body {
 /* 헤더 */
 .legal-header {
   position: sticky; top: 0; z-index: 10;
-  background: rgba(246,242,234,.92);
+  background: rgba(255,255,255,.94);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
   padding: 16px 24px;
