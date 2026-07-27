@@ -550,11 +550,11 @@ html, body {
   display: flex; align-items: center; justify-content: space-between; gap: 22px;
 }
 .pricing-cta strong {
-  display: block; color: var(--ink); font-size: 22px;
+  display: block; color: #fff; font-size: 22px;
   line-height: 1.2; letter-spacing: -.02em; margin-bottom: 6px;
 }
 .pricing-cta span {
-  display: block; color: var(--muted); font-size: 14px; line-height: 1.5;
+  display: block; color: #C6D6E0; font-size: 14px; line-height: 1.5;
 }
 .pricing-cta .btn { flex: none; }
 .eb-tag {
@@ -796,7 +796,9 @@ footer .logo { color: #fff; }
 .proof-card img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 300px;              /* 카드 높이 균일화 (2/2/1) — 사장 피드백 2026-07-28 */
+  object-fit: cover;
+  object-position: left top;  /* 앱 화면 상단(헤더·핵심 UI) 기준 크롭 */
   border-bottom: 1px solid var(--line);
   background: #fff;
 }
@@ -813,4 +815,5 @@ footer .logo { color: #fff; }
 #features .asset-flow { margin-top: 28px; }
 @media (max-width: 720px) {
   .proof-grid { grid-template-columns: 1fr; gap: 16px; }
+  .proof-card img { height: 230px; }
 }
