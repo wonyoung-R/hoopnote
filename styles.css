@@ -817,3 +817,66 @@ footer .logo { color: #fff; }
   .proof-grid { grid-template-columns: 1fr; gap: 16px; }
   .proof-card img { height: 280px; }
 }
+
+/* 등하원 섹션 — 카드 2개 구성(등원/하원)이라 3열 기본값을 덮는다 */
+#attendance-shuttle .scenarios-grid { grid-template-columns: repeat(2, 1fr); }
+
+/* 앱 설치 불필요 — 3개 부정 항목 */
+.noapp-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
+}
+.noapp-item {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r-xl);
+  padding: 28px 24px; text-align: center;
+}
+.noapp-x {
+  display: inline-block; font-size: 14px; color: var(--muted);
+  text-decoration: line-through; text-decoration-color: var(--orange);
+  text-decoration-thickness: 2px; margin-bottom: 10px;
+}
+.noapp-item strong { display: block; font-size: 22px; letter-spacing: -0.02em; margin-bottom: 8px; }
+.noapp-item p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0; }
+
+@media (max-width: 900px) {
+  #attendance-shuttle .scenarios-grid { grid-template-columns: 1fr; }
+  .noapp-grid { grid-template-columns: 1fr; gap: 12px; }
+  .noapp-item { padding: 20px; }
+}
+
+/* 가격 스트립 — 히어로 직후. 후킹은 단가, 신뢰는 계산 예시와 하한 명시로 만든다 */
+.price-strip {
+  margin: 8px 0 24px;
+  padding: 28px 32px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--orange);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-1);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px 40px;
+  align-items: center;
+}
+.ps-lead strong {
+  display: block; font-size: 30px; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 8px;
+}
+.ps-lead span { color: var(--muted); font-size: 15px; line-height: 1.6; }
+.ps-calc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ps-item {
+  text-align: center; padding: 14px 8px; border-radius: var(--r-lg);
+  background: var(--bg); border: 1px solid var(--line);
+}
+.ps-item b { display: block; font-size: 15px; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+.ps-item span { display: block; font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+.ps-note {
+  grid-column: 1 / -1; margin: 0; padding-top: 16px; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: 13px; line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .price-strip { grid-template-columns: 1fr; padding: 22px 20px; gap: 18px; }
+  .ps-lead strong { font-size: 25px; }
+  .ps-calc { gap: 8px; }
+  .ps-item { padding: 12px 4px; }
+  .ps-item b { font-size: 13px; }
+  .ps-item span { font-size: 16px; }
+}

@@ -1,3 +1,6 @@
 
 # 다른 세션의 git worktree — 커밋 대상 아님
 .claude/worktrees/
+
+# 공개 배포 금지 — 내부 법무 검토 문서 (문서 말미 명시)
+LEGAL-REVIEW-CHECKLIST.md
