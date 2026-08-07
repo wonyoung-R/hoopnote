@@ -880,3 +880,27 @@ footer .logo { color: #fff; }
   .ps-item b { font-size: 13px; }
   .ps-item span { font-size: 16px; }
 }
+
+/* ── 요금 계산기 (#pricing) — docs/adoption-manual.html과 동일 모델의 랜딩 버전 ── */
+.fee-calc {
+  margin-top: 22px; padding: 26px; border: 1px solid var(--line);
+  border-radius: var(--r-lg); background: var(--paper-2); max-width: 680px;
+}
+.fee-calc h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -.015em; }
+.fee-calc .fc-sub { margin: 0 0 18px; color: var(--ink-2); font-size: 13px; line-height: 1.6; }
+.fc-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+.fc-row label { color: var(--ink-2); font-size: 15px; font-weight: 700; }
+.fc-row input {
+  width: 150px; height: 48px; border: 1px solid var(--line); border-radius: var(--r-sm);
+  background: var(--paper); color: var(--ink); font: inherit; font-size: 16px;
+  padding: 0 12px; text-align: right;
+}
+.fc-out { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.fc-amount { font-size: 34px; font-weight: 800; letter-spacing: -.03em; color: var(--ink); line-height: 1.2; }
+.fc-basis { margin: 10px 0 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.65; }
+.fc-basis b { color: var(--orange-2); }
+.fc-note { margin: 12px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+@media (max-width: 640px) {
+  .fc-row { grid-template-columns: 1fr; }
+  .fc-row input { width: 100%; text-align: left; }
+}

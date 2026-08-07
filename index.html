@@ -78,6 +78,36 @@
           "@type": "Question",
           "name": "학원비 수납도 되나요?",
           "acceptedAnswer": { "@type": "Answer", "text": "네. hoopnote는 수납 알림톡에 결제선생 결제 링크를 안내할 수 있습니다. 실제 결제와 장부는 원장님이 결제선생에서 직접 관리하고, 학원비는 원장님 명의 계좌로 바로 입금됩니다. hoopnote는 청구 안내와 미수 관리를 돕기 위해 청구 금액·결제 상태는 다루지만, 카드번호 등 결제수단 정보는 보관하지 않습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "도입까지 얼마나 걸리나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "결제선생 카드 가맹 신청이 완료되고 명단을 양식에 맞춰 등록하면 1주일 이내에 시작할 수 있습니다. 사전 준비 기간에는 비용이 청구되지 않고, 과금은 사용 승인 시점부터 시작됩니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "세팅은 어디까지 도와주나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "명단 이전을 대행하고, 알림톡 템플릿은 미리 승인·준비되어 있습니다. 첫 발송까지 함께 진행합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "해지는 어떻게 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "약정이 없어 언제든 해지할 수 있습니다. 해지해도 결제한 달은 말일까지 사용할 수 있고, 이후로는 청구되지 않습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "코치가 그만두면 계정은 어떻게 되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "원장님이 즉시 계정을 해제할 수 있습니다. 코치 수는 요금과 무관합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "셔틀 기사님도 앱을 설치해야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "별도 설치 없이 기사님은 웹 화면에서 출발 버튼 한 번이면 됩니다. 출발 알림은 학부모에게 카카오 알림톡으로 나갑니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "학생 데이터는 안전하게 보관되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "학생 데이터는 국내(서울 리전) 서버에 저장되고 학원별로 분리 보관되며, 시스템 기록의 연락처는 마스킹됩니다. 퇴원 시 상태만 변경되어 기록이 보존되고, 별도 삭제 요청 시 모든 데이터를 완전히 삭제합니다." }
         }
       ]
     }
@@ -611,10 +641,19 @@
         <p class="plan-note">표시 금액은 부가세 별도이며, 사업자 원장님께는 세금계산서를 발행해 드립니다. 방학특강 등록 학생은 요금 계산에 포함되지 않습니다. 학부모가 학원비를 결제할 때 발생하는 수수료는 결제선생 정책을 따르며, 이 요금과는 별개입니다.</p>
       </article>
     </div>
+    <div class="fee-calc">
+      <h3>우리 학원은 얼마인지 바로 계산해 보세요</h3>
+      <p class="fc-sub">정규 등록 학생 수만 넣으면 월 금액이 바로 나옵니다. 방학특강·휴원·퇴원 학생은 계산에 들어가지 않습니다.</p>
+      <div class="fc-row">
+        <label for="fcStudents">정규 등록 학생 수</label>
+        <input id="fcStudents" type="number" value="100" min="1" max="5000" step="1" inputmode="numeric">
+      </div>
+      <div class="fc-out" id="fcOut" aria-live="polite"></div>
+    </div>
     <div class="pricing-cta">
       <div>
-        <strong>우리 학원은 얼마인지 계산해 드립니다</strong>
-        <span>학원명·이메일·학생 수만 남기면, 정규 등록 학생 기준 예상 금액을 메일로 정리해 보내드립니다.</span>
+        <strong>도입 준비는 안내서로 시작하세요</strong>
+        <span>학원명·이메일·학생 수만 남기면 도입 안내서와 학원 규모에 맞는 정리를 메일로 보내드립니다.</span>
       </div>
       <a class="btn btn-pri btn-lg" href="guide-request.html">도입 안내 정보 받기 <span class="icon" data-icon="arrow"></span></a>
     </div>
@@ -630,9 +669,9 @@
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-highlight"><span>🚌</span> 등하원 알림</div>
-        <div class="testi-result">수업 후 작성 업무 감소</div>
-        <p>"수업 끝나고 메모만 남겼는데 알림장 초안이 완성돼 있었어요. 일일이 타이핑하던 게 사라졌습니다."</p>
-        <div class="testi-who">유소년 농구학원 원장 · 알림장 사용</div>
+        <div class="testi-result">등하원 확인 연락 감소</div>
+        <p>"아이가 입구 패드에 번호만 누르면 등원 알림이 바로 가요. 하원도 코치가 버튼 하나로 보내니, 수업 중에 따로 챙길 게 없습니다."</p>
+        <div class="testi-who">유소년 농구학원 원장 · 등하원 흐름 검증</div>
       </div>
       <div class="testi-card">
         <div class="testi-highlight"><span>📋</span> 엑셀 명단 등록</div>
@@ -685,6 +724,30 @@
         <details>
           <summary>기존 학생 데이터를 옮길 수 있나요?</summary>
           <p>네. 엑셀을 붙여넣으면 명단을 해석해 학생 등록부터 수강료 플랜까지 한 번에 만들어 줍니다.</p>
+        </details>
+        <details>
+          <summary>도입까지 얼마나 걸리나요?</summary>
+          <p>결제선생 카드 가맹 신청이 완료되고 명단을 양식에 맞춰 등록하면 1주일 이내에 시작할 수 있습니다. 사전 준비 기간에는 비용이 청구되지 않고, 과금은 사용 승인 시점부터 시작됩니다.</p>
+        </details>
+        <details>
+          <summary>세팅은 어디까지 도와주나요?</summary>
+          <p>명단 이전을 대행해 드리고, 알림톡 템플릿은 미리 승인·준비되어 있습니다. 첫 발송까지 함께 진행하니 처음부터 혼자 세팅하실 일이 없습니다.</p>
+        </details>
+        <details>
+          <summary>해지는 어떻게 하나요?</summary>
+          <p>약정이 없어 언제든 해지할 수 있습니다. 해지해도 결제한 달은 말일까지 그대로 사용하실 수 있고, 이후로는 청구되지 않습니다.</p>
+        </details>
+        <details>
+          <summary>코치가 그만두면 계정은 어떻게 되나요?</summary>
+          <p>원장님이 즉시 계정을 해제할 수 있습니다. 코치 계정은 학생 정보와 연결되므로 퇴사 시 바로 해제하시길 권장드리며, 코치 수는 요금과 무관합니다.</p>
+        </details>
+        <details>
+          <summary>셔틀 기사님도 앱을 설치해야 하나요?</summary>
+          <p>별도 설치 없이 기사님은 웹 화면에서 출발 버튼 한 번이면 됩니다. 출발 알림은 학부모에게 카카오 알림톡으로 나갑니다.</p>
+        </details>
+        <details>
+          <summary>학생 데이터는 안전하게 보관되나요?</summary>
+          <p>학생 데이터는 국내(서울 리전) 서버에 저장되고, 학원별로 분리 보관되며, 시스템 기록의 연락처는 마스킹됩니다. 퇴원 시 데이터는 삭제되지 않고 상태만 '퇴원'으로 바뀌어 기록이 보존되며, 별도로 삭제를 요청하시면 모든 데이터를 완전히 삭제합니다.</p>
         </details>
       </div>
     </div>
@@ -747,6 +810,72 @@
     var s = p.get('utm_source'), m = p.get('utm_medium'), c = p.get('utm_campaign');
     if (s || m || c) sessionStorage.setItem('hn_utm', JSON.stringify({ s: s, m: m, c: c }));
   } catch (e) { /* 계측 실패는 무시 */ }
+})();
+</script>
+<script>
+// 요금 계산기 — 앱 단일 진실원천(src/lib/billing/usage-pricing.ts)·docs/adoption-manual.html과 같은 모델.
+// 상수를 바꿀 때는 세 곳을 함께. 검증 수치: 30→100,000 / 100→150,000 / 300→450,000 / 500→750,000 / 1,000→1,387,500
+(function () {
+  var PER_STUDENT_PRICE = 1500;
+  var BILLING_FLOOR = 100000;
+  var VOLUME_DISCOUNT_START = 500;   // 이 인원까지는 기본 단가
+  var VOLUME_TIER_SIZE = 100;        // 할인 구간 크기
+  var TIER_DISCOUNT_AMOUNT = 75;     // 구간당 체감액 (1,500원의 5%)
+  var MIN_UNIT_PRICE = 1000;         // 단가 하한 — 무한 체감 방지
+  var LAST_STEP = Math.floor((PER_STUDENT_PRICE - MIN_UNIT_PRICE) / TIER_DISCOUNT_AMOUNT);
+
+  function unitForStep(step) {
+    return Math.max(MIN_UNIT_PRICE, PER_STUDENT_PRICE - TIER_DISCOUNT_AMOUNT * Math.max(step, 0));
+  }
+  function normalize(n) { return (isFinite(n) && n > 0) ? Math.floor(n) : 0; }
+  // 500명까지는 기본 단가, 초과분만 100명씩 잘라 단가를 낮춰 더한다(누진).
+  // 전체 인원에 할인율을 곱하면 대형 학원에서 금액이 역전되므로 반드시 초과분에만 적용한다.
+  function calcAmount(count) {
+    var n = normalize(count);
+    if (n <= VOLUME_DISCOUNT_START) return Math.max(BILLING_FLOOR, n * PER_STUDENT_PRICE);
+    var total = VOLUME_DISCOUNT_START * PER_STUDENT_PRICE;
+    var remaining = n - VOLUME_DISCOUNT_START;
+    for (var step = 1; step <= LAST_STEP && remaining > 0; step++) {
+      var inTier = Math.min(VOLUME_TIER_SIZE, remaining);
+      total += inTier * unitForStep(step);
+      remaining -= inTier;
+    }
+    if (remaining > 0) total += remaining * MIN_UNIT_PRICE;
+    return total;
+  }
+  function marginalUnit(count) {
+    var n = normalize(count);
+    if (n <= VOLUME_DISCOUNT_START) return PER_STUDENT_PRICE;
+    return unitForStep(Math.ceil((n - VOLUME_DISCOUNT_START) / VOLUME_TIER_SIZE));
+  }
+  function won(n) { return n.toLocaleString('ko-KR') + '원'; }
+  function people(n) { return n.toLocaleString('ko-KR') + '명'; }
+
+  var input = document.getElementById('fcStudents');
+  var out = document.getElementById('fcOut');
+  function render() {
+    var n = normalize(parseInt(input.value, 10));
+    if (n < 1) n = 1;
+    var raw = n * PER_STUDENT_PRICE;
+    var amount = calcAmount(n);
+    var effective = Math.round(amount / n);
+    var basis;
+    if (n > VOLUME_DISCOUNT_START) {
+      basis = '정규 등록 학생 ' + people(n) + ' — ' + people(VOLUME_DISCOUNT_START) + '까지 ' + won(PER_STUDENT_PRICE)
+        + ', 초과분은 100명 구간마다 단가가 5%씩 내려갑니다(현재 구간 ' + won(marginalUnit(n)) + '). '
+        + '학생 1명당 평균 <b>' + won(effective) + '</b>.';
+    } else if (raw <= BILLING_FLOOR) {
+      basis = '정규 등록 학생 ' + people(n) + ' × ' + won(PER_STUDENT_PRICE) + ' = ' + won(raw)
+        + ' → <b>최소 금액 ' + won(BILLING_FLOOR) + '</b>이 적용됩니다.';
+    } else {
+      basis = '정규 등록 학생 ' + people(n) + ' × ' + won(PER_STUDENT_PRICE) + '.';
+    }
+    out.innerHTML =
+      '<div class="fc-amount">월 ' + amount.toLocaleString('ko-KR') + '원</div>' +
+      '<p class="fc-basis">' + basis + '</p>' +
+      '<p class="fc-note">알림톡 발송료가 포함된 금액입니다(부가세 별도). 방학특강·휴원·퇴원 학생은 계산에 포함되지 않으며, 학부모 학원비 결제 시 발생하는 결제선생 수수료는 별개입니다. 첫 달은 무료입니다.</p>';
+  }
+  if (input && out) { input.addEventListener('input', render); render(); }
 })();
 </script>
 </body>
