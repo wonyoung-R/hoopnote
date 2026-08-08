@@ -904,3 +904,60 @@ footer .logo { color: #fff; }
   .fc-row { grid-template-columns: 1fr; }
   .fc-row input { width: 100%; text-align: left; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   모션 (PR #18 재구현, 2026-08) — 과하지 않은 스크롤 리빌 + 마이크로 인터랙션
+   접근성: prefers-reduced-motion 이면 전부 비활성(맨 아래 미디어쿼리)
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 스크롤 진입 리빌 (JS가 .reveal 부여 → 뷰포트 진입 시 .in) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .55s cubic-bezier(.4,0,.2,1), transform .55s cubic-bezier(.4,0,.2,1);
+  will-change: opacity, transform;
+}
+.reveal.in { opacity: 1; transform: none; }
+/* 같은 줄 카드 stagger (JS가 d1~d4 부여) */
+.reveal.d1 { transition-delay: .06s; }
+.reveal.d2 { transition-delay: .12s; }
+.reveal.d3 { transition-delay: .18s; }
+.reveal.d4 { transition-delay: .24s; }
+
+/* ── 카드 hover 마이크로 인터랙션 (살짝 떠오르고 테두리 강조) ──
+   fee-calc 는 입력 위젯이라 hover 리프트 제외(리빌만) */
+.diagnosis-card, .feat, .compare-card, .scenario-card,
+.testi-card, .step {
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.diagnosis-card:hover, .feat:hover, .compare-card:hover,
+.scenario-card:hover, .testi-card:hover, .step:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+  box-shadow: 0 16px 40px -20px rgba(255,65,3,.45);
+}
+
+/* ── 히어로 로드 인 (순차 등장, JS 불필요) ── */
+.hero .eyebrow, .hero h1, .hero .lead, .hero .cta, .hero .cta-note, .hero .meta, .hero-art {
+  opacity: 0;
+  animation: heroUp .7s cubic-bezier(.4,0,.2,1) forwards;
+}
+.hero .eyebrow  { animation-delay: .05s; }
+.hero h1        { animation-delay: .13s; }
+.hero .lead     { animation-delay: .22s; }
+.hero .cta      { animation-delay: .31s; }
+.hero .cta-note { animation-delay: .38s; }
+.hero .meta     { animation-delay: .45s; }
+.hero-art       { animation-delay: .30s; }
+@keyframes heroUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* ── 접근성: 모션 최소화 선호 시 전부 비활성 ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.in { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero .eyebrow, .hero h1, .hero .lead, .hero .cta, .hero .cta-note, .hero .meta, .hero-art {
+    opacity: 1 !important; animation: none !important; transform: none !important;
+  }
+  .diagnosis-card, .feat, .compare-card, .scenario-card, .testi-card, .step {
+    transition: none !important;
+  }
+}
