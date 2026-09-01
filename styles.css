@@ -239,7 +239,7 @@ html, body {
 /* === DIAGNOSIS === */
 .diagnosis-section { padding-top: 76px; }
 .diagnosis-grid {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px; background: var(--line);
   border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden;
 }
@@ -696,9 +696,9 @@ footer .logo { color: #fff; }
   .hero { grid-template-columns: 1fr; gap: 0; padding: 110px 0 60px; }
   .hero h1 { font-size: 60px; }
   .hero-art { display: none; }
-  .features-grid, .steps-grid { grid-template-columns: 1fr 1fr; }
-  .diagnosis-grid { grid-template-columns: 1fr 1fr; }
-  .scenarios-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .scenarios-grid { grid-template-columns: 1fr 1fr; }
+  /* diagnosis-grid/steps-grid/testi-grid: 3개 항목 고정이라 이 폭에서는 3열 유지 — 2열로 바꾸면 빈 칸(orphan cell) 발생 */
   .split { grid-template-columns: 1fr; gap: 36px; }
   .split.game-split { grid-template-columns: 1fr; }
   .split .art { aspect-ratio: 4/3; }
