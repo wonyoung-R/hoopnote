@@ -180,7 +180,8 @@
             <small>실제 연동 시 이 이메일로 도입 안내 정보 페이지를 보내드립니다.</small>
           </div>
 
-          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <!-- 허니팟(봇 차단). 필드명을 자동완성이 인식하는 company/organization 계열에서 뺀다 — 2026-09-03: 크롬·사파리 자동완성이 회사명을 채워 실제 원장 제출이 봇으로 분류돼 접수·회신이 유실됐다. 서버 JSON 키는 그대로 company. -->
+          <input type="text" id="hn_extra" name="hn_extra" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <button class="btn btn-pri btn-lg request-submit" type="submit">도입 안내 신청</button>
           <p class="privacy-note">입력하신 학원명·이메일·학생 수는 도입 안내 목적(규모 판단·안내 발송)으로만 이용됩니다. 자세한 처리 기준은 <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>을 확인해 주세요.</p>
         </form>
@@ -322,7 +323,7 @@
         var academyName = document.getElementById('academyName').value.trim();
         var students = document.getElementById('studentCount').value;
         var contact = document.getElementById('contact').value;
-        var company = (document.getElementById('company') || {}).value || ''; // 허니팟(봇 차단)
+        var company = (document.getElementById('hn_extra') || {}).value || ''; // 허니팟(봇 차단) — 서버 키는 company 유지
 
         var original = btn.textContent;
         btn.disabled = true;
