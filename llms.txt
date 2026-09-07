@@ -18,6 +18,7 @@
 ## 페이지
 - [홈](https://www.hoopnote.kr/): 서비스 소개
 - [사용 가이드](https://www.hoopnote.kr/docs): 5분 온보딩 — 학원 등록, 학생 명단, 출결, 알림장
+- [블로그](https://www.hoopnote.kr/blog): 유소년 농구 학원 운영 실무 정보
 - [개인정보처리방침](https://www.hoopnote.kr/privacy.html)
 - [이용약관](https://www.hoopnote.kr/terms.html)
 - [환불정책](https://www.hoopnote.kr/refund.html)
