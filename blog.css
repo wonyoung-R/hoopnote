@@ -113,6 +113,21 @@ img { max-width: 100%; height: auto; display: block; }
 .blog-article figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
 .blog-article ul, .blog-article ol { padding-left: 22px; color: var(--ink-2); }
 .blog-article li { margin: 6px 0; }
+.blog-article table {
+  width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 15px;
+}
+.blog-article th, .blog-article td {
+  border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top;
+}
+.blog-article th { background: var(--orange-wash); font-weight: 700; color: var(--ink); }
+.blog-article td:last-child, .blog-article th:last-child { text-align: right; }
+.blog-article blockquote {
+  margin: 16px 0; padding: 12px 18px; border-left: 3px solid var(--orange);
+  background: var(--orange-wash); border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  color: var(--ink-2); font-size: 15px;
+}
+.blog-article blockquote p { margin: 0; }
+.blog-article hr { border: none; border-top: 1px solid var(--line); margin: 36px 0; }
 
 /* 글 하단 CTA */
 .blog-cta {

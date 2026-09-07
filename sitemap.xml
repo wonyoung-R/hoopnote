@@ -19,7 +19,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.hoopnote.kr/blog/how-hoopnote-works</loc>
+    <loc>https://www.hoopnote.kr/blog/basketball-academy-attendance</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.hoopnote.kr/blog/academy-parent-note-formula</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.hoopnote.kr/blog/academy-management-checklist</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
