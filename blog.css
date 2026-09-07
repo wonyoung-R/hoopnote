@@ -1,0 +1,150 @@
+/* HoopNote 블로그 공통 스타일 — index.html(styles.css)·legal.css 와 같은 톤 계승 */
+:root {
+  --paper: #FFFFFF;
+  --card: #FFFFFF;
+  --ink: #001621;
+  --ink-2: #33454F;
+  --muted: #5E7C8D;
+  --line: #E2E8EC;
+  --orange: #FF4103;
+  --orange-2: #D63700;
+  --orange-soft: #FFD3C2;
+  --orange-wash: #FFF3ED;
+  --f-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --f-mono: 'SF Mono', ui-monospace, monospace;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: -.005em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+/* 헤더 */
+.blog-header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-weight: 800; font-size: 18px; color: var(--ink);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.logo .mark {
+  width: 14px; height: 14px; border-radius: 4px; background: var(--orange);
+  display: inline-block;
+}
+.blog-header .logo .tag {
+  font-size: 13px; font-weight: 600; color: var(--muted);
+  padding-left: 8px; border-left: 1px solid var(--line); margin-left: 2px;
+}
+.blog-header .home-link {
+  font-size: 14px; color: var(--muted); text-decoration: none;
+  padding: 8px 14px; border: 1px solid var(--line); border-radius: var(--r-pill);
+  transition: all .15s;
+}
+.blog-header .home-link:hover { color: var(--orange); border-color: var(--orange); }
+
+/* 컨테이너 */
+.blog-main { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* 목록 페이지 히어로 */
+.blog-hero { padding: 56px 0 40px; }
+.blog-hero .eyebrow {
+  font-size: 12px; font-family: var(--f-mono); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 12px;
+}
+.blog-hero h1 { font-size: 36px; font-weight: 800; letter-spacing: -.02em; margin: 0 0 12px; }
+.blog-hero p { font-size: 16px; color: var(--ink-2); margin: 0; max-width: 520px; }
+
+/* 포스트 카드 목록 */
+.post-list { display: flex; flex-direction: column; gap: 4px; padding-bottom: 96px; }
+.post-card {
+  display: block; text-decoration: none; color: inherit;
+  padding: 24px 4px; border-top: 1px solid var(--line);
+  transition: opacity .15s;
+}
+.post-card:hover { opacity: .7; }
+.post-card:last-child { border-bottom: 1px solid var(--line); }
+.post-card .post-date {
+  font-size: 13px; font-family: var(--f-mono); color: var(--muted); letter-spacing: .03em;
+}
+.post-card h2 {
+  font-size: 21px; font-weight: 700; letter-spacing: -.01em; color: var(--ink);
+  margin: 8px 0 6px;
+}
+.post-card p { font-size: 15px; color: var(--ink-2); margin: 0; }
+.post-card .post-more { font-size: 14px; color: var(--orange); font-weight: 600; margin-top: 8px; display: inline-block; }
+
+/* 개별 글(article) */
+.blog-article { padding: 48px 0 96px; }
+.blog-article .post-date {
+  font-size: 13px; font-family: var(--f-mono); color: var(--muted); letter-spacing: .03em;
+  margin-bottom: 10px; display: block;
+}
+.blog-article h1 { font-size: 32px; font-weight: 800; letter-spacing: -.02em; margin: 0 0 28px; line-height: 1.3; }
+.blog-article h2 {
+  font-size: 22px; font-weight: 800; letter-spacing: -.01em; margin: 40px 0 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.blog-article h2::before { content: ""; width: 4px; height: 20px; background: var(--orange); border-radius: 2px; flex: none; }
+.blog-article h3 { font-size: 17px; font-weight: 700; margin: 24px 0 8px; }
+.blog-article p { font-size: 16px; color: var(--ink-2); line-height: 1.75; margin: 0 0 16px; }
+.blog-article strong { font-weight: 700; color: var(--ink); }
+.blog-article a { color: var(--orange); font-weight: 600; text-decoration: none; }
+.blog-article a:hover { text-decoration: underline; }
+.blog-article figure { margin: 28px 0; }
+.blog-article figure img { border-radius: var(--r-md); border: 1px solid var(--line); }
+.blog-article figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
+.blog-article ul, .blog-article ol { padding-left: 22px; color: var(--ink-2); }
+.blog-article li { margin: 6px 0; }
+
+/* 글 하단 CTA */
+.blog-cta {
+  margin-top: 48px; padding: 28px; background: var(--orange-wash);
+  border: 1px solid var(--orange-soft); border-radius: var(--r-lg); text-align: center;
+}
+.blog-cta p { margin: 0 0 14px; color: var(--ink); font-weight: 600; }
+.blog-cta a {
+  display: inline-block; background: var(--orange); color: #fff;
+  padding: 12px 24px; border-radius: var(--r-pill); font-weight: 700; text-decoration: none;
+}
+.blog-cta a:hover { background: var(--orange-2); text-decoration: none; }
+
+/* 목록으로 */
+.back-link { display: inline-block; font-size: 14px; color: var(--muted); text-decoration: none; margin-bottom: 24px; }
+.back-link:hover { color: var(--orange); }
+
+/* 푸터 (index.html 과 같은 정보, 앵커만 절대경로로) */
+.blog-foot {
+  border-top: 1px solid var(--line); padding: 40px 24px 28px;
+  max-width: 760px; margin: 0 auto;
+}
+.blog-foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.blog-foot-grid h5 { font-size: 12px; font-family: var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 10px; }
+.blog-foot-grid a { display: block; font-size: 14px; color: var(--ink-2); text-decoration: none; margin: 6px 0; }
+.blog-foot-grid a:hover { color: var(--orange); }
+.blog-foot-brand .logo { margin-bottom: 4px; }
+.blog-foot-brand p { font-size: 13px; color: var(--muted); margin: 8px 0 0; max-width: 260px; }
+.blog-foot-legal { font-size: 12px; color: var(--muted); line-height: 1.8; border-top: 1px solid var(--line); padding-top: 16px; }
+
+@media (max-width: 640px) {
+  .blog-hero h1 { font-size: 28px; }
+  .blog-article h1 { font-size: 26px; }
+  .blog-foot-grid { grid-template-columns: 1fr; }
+}
