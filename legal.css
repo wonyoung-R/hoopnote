@@ -68,6 +68,7 @@ html, body {
 .legal-main li { margin: 6px 0; }
 .legal-main table {
   width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px;
+  overflow-wrap: anywhere;
 }
 .legal-main th, .legal-main td {
   border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top;
@@ -103,4 +104,5 @@ html, body {
 @media (max-width: 600px) {
   .legal-main { padding: 32px 18px 72px; }
   .legal-main h1 { font-size: 24px; }
+  .legal-main th, .legal-main td { padding: 8px 6px; }
 }
