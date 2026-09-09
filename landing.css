@@ -1,4 +1,4 @@
-/* Main landing only. The guide and reference pages retain styles.css. */
+/* Shared visual foundation for the landing and email-linked adoption pages. */
 :root {
   --ink: #10242e;
   --muted: #52636d;
