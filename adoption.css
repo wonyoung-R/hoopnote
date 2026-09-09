@@ -1,0 +1,82 @@
+/* Email-linked pages share the landing's typography, colors and components. */
+.adoption-nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 76px; border-bottom: 1px solid var(--line); }
+.adoption-nav .text-link { color: var(--muted); font-size: 14px; }
+.adoption-hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 80px; align-items: center; padding-block: 72px; }
+.adoption-hero h1 { font-size: clamp(36px, 4.2vw, 54px); line-height: 1.25; letter-spacing: -.05em; }
+.adoption-hero .lead { max-width: 440px; }
+.adoption-points { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 12px; }
+.adoption-points li { color: var(--muted); font-size: 15px; }
+.adoption-points strong { color: var(--ink); font-weight: 600; margin-right: 12px; }
+.adoption-photo { width: 100%; max-width: 360px; justify-self: center; }
+.adoption-photo a { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: zoom-in; }
+.adoption-photo img { display: block; width: 100%; height: auto; }
+.adoption-photo figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: 12px; font-size: 12px; color: var(--muted); }
+.adoption-steps { border-top: 1px solid var(--line); }
+.steps-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0; margin: 0; list-style: none; }
+.steps-list h3 { font-size: 21px; margin-bottom: 10px; }
+.steps-list p { color: var(--muted); font-size: 15px; }
+.steps-list .feature-number { margin-bottom: 18px; }
+.adoption-faq .detail-links { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-bottom: 24px; }
+.adoption-faq .detail-links a { color: var(--accent); font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+.adoption-next p:not(.eyebrow) { margin-top: 14px; color: var(--muted); font-size: 14px; }
+.adoption-next .btn { white-space: normal; }
+.adoption-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: var(--muted); }
+.adoption-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+.confirm-shell { width: min(640px, calc(100% - 48px)); margin-inline: auto; }
+.confirm-layout { padding-block: 56px 64px; }
+.confirm-card { border: 1px solid var(--line); border-radius: 12px; padding: 36px; }
+.confirm-card h1 { font-size: 32px; line-height: 1.35; }
+.confirm-card .lead { margin: 12px 0 28px; font-size: 15px; }
+.academy-line { color: var(--accent); font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+.tier-line { background: var(--surface); border-radius: 7px; padding: 12px 16px; margin-bottom: 26px; font-size: 14px; color: var(--muted); }
+.confirm-form { display: grid; gap: 22px; }
+.field { display: grid; gap: 8px; min-width: 0; }
+fieldset.field { border: 0; padding: 0; margin: 0; }
+.field label, .field legend { font-size: 14px; font-weight: 600; }
+.field legend { padding: 0; margin-bottom: 10px; }
+.optional { color: var(--muted); font-weight: 400; }
+.field small { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.field input[type='text'], .field input[type='tel'] { width: 100%; min-width: 0; height: 48px; border: 1px solid #a9b7bf; border-radius: 6px; padding: 0 14px; color: var(--ink); background: white; }
+.field input::placeholder { color: #657681; }
+.payssam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.payssam-option { display: flex; align-items: center; min-height: 48px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
+.payssam-option:has(input:checked) { border-color: var(--ink); background: var(--surface); }
+.payssam-option input { margin: 0 9px 0 0; accent-color: var(--ink); }
+.confirm-submit { width: 100%; margin-top: 2px; }
+.btn:disabled { cursor: wait; opacity: .65; }
+.not-payment { color: var(--muted); font-size: 12px; line-height: 1.7; margin-top: -10px; }
+.form-error { padding: 12px 14px; margin: 0; border: 1px solid #e6beb2; border-radius: 6px; background: #fff8f5; color: #a22e0b; font-size: 14px; }
+.state-box > p:not(.eyebrow) { margin-top: 16px; color: var(--muted); font-size: 15px; }
+.state-box .btn { margin-top: 26px; white-space: normal; }
+.state-box .text-link { margin-top: 14px; }
+.state-box h1:focus { outline: none; }
+.loading-line { display: flex; gap: 12px; align-items: center; color: var(--muted); font-size: 15px; }
+.loading-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.no-script { padding: 20px; margin-top: 24px; border: 1px solid var(--line); border-radius: 8px; }
+.no-script a { text-decoration: underline; }
+.hidden { display: none !important; }
+@media (max-width: 800px) {
+  .adoption-hero { gap: 36px; padding-block: 52px; }
+  .steps-list { gap: 24px; }
+  .adoption-points strong { display: block; margin-bottom: 2px; }
+}
+@media (max-width: 560px) {
+  .adoption-nav { min-height: 68px; gap: 12px; }
+  .adoption-nav .text-link { font-size: 13px; }
+  .adoption-hero { grid-template-columns: 1fr; padding-block: 40px 44px; gap: 32px; }
+  .adoption-hero h1 { font-size: clamp(32px, 9vw, 42px); }
+  .adoption-hero .lead { font-size: 16px; margin-top: 20px; }
+  .adoption-points { gap: 10px; margin-top: 22px; }
+  .adoption-points strong { display: inline; }
+  .adoption-photo { max-width: 320px; }
+  .steps-list { grid-template-columns: 1fr; gap: 28px; }
+  .steps-list li { position: relative; padding-left: 38px; }
+  .steps-list .feature-number { position: absolute; left: 0; top: 3px; margin: 0; }
+  .steps-list h3 { font-size: 19px; margin-bottom: 6px; }
+  .confirm-shell { width: calc(100% - 40px); }
+  .confirm-layout { padding-block: 32px 40px; }
+  .confirm-card { padding: 26px 20px; }
+  .confirm-card h1 { font-size: 27px; }
+  .confirm-card .lead { font-size: 14px; margin-bottom: 24px; }
+  .payssam-grid { grid-template-columns: 1fr; gap: 8px; }
+}

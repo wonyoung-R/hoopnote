@@ -68,11 +68,16 @@ html, body {
 .legal-main li { margin: 6px 0; }
 .legal-main table {
   width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px;
+  overflow-wrap: anywhere;
 }
 .legal-main th, .legal-main td {
   border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top;
 }
 .legal-main th { background: var(--orange-wash); font-weight: 700; }
+.legal-table-scroll { overflow-x: auto; overscroll-behavior-x: contain; margin-block: 16px; }
+.legal-table-scroll table { min-width: 700px; margin: 0; }
+.legal-table-scroll:focus-visible { outline: 2px solid var(--orange-2); outline-offset: 3px; }
+.table-scroll-note { display: none; }
 
 /* 초안/검토 배너 */
 .legal-draft {
@@ -103,4 +108,6 @@ html, body {
 @media (max-width: 600px) {
   .legal-main { padding: 32px 18px 72px; }
   .legal-main h1 { font-size: 24px; }
+  .legal-main th, .legal-main td { padding: 8px 6px; }
+  .table-scroll-note { display: block; font-size: 13px; color: var(--muted); }
 }
