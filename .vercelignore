@@ -1,0 +1,5 @@
+# Internal documents are not public website assets.
+**/*.md
+.claude/
+.git/
+.DS_Store
